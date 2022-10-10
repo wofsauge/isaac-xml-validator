@@ -1,0 +1,18 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="babies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="baby">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="skin" type="xs:string" use="required" />
+            <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="root" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

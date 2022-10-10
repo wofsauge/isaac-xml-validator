@@ -1,0 +1,30 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="bombcostumes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="bomb">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="rule">
+                <xs:complexType>
+                  <xs:attribute name="body" type="xs:string" use="optional" />
+                  <xs:attribute name="includeFlags" type="xs:string" use="optional" />
+                  <xs:attribute name="front2" type="xs:string" use="optional" />
+                  <xs:attribute name="suffix2" type="xs:string" use="optional" />
+                  <xs:attribute name="body2" type="xs:string" use="optional" />
+                  <xs:attribute name="back" type="xs:string" use="optional" />
+                  <xs:attribute name="overlay" type="xs:string" use="optional" />
+                  <xs:attribute name="excludeFlags" type="xs:string" use="optional" />
+                  <xs:attribute name="front" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="variant" type="xs:unsignedByte" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="anm2root" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

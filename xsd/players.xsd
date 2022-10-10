@@ -1,0 +1,45 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="players">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="player">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element maxOccurs="unbounded" name="hair">
+                <xs:complexType>
+                  <xs:attribute name="gfx" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="skin" type="xs:string" use="required" />
+            <xs:attribute name="hp" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="bombs" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="nameimage" type="xs:string" use="required" />
+            <xs:attribute name="portrait" type="xs:string" use="required" />
+            <xs:attribute name="skinColor" type="xs:byte" use="required" />
+            <xs:attribute name="birthright" type="xs:string" use="required" />
+            <xs:attribute name="costume" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="items" type="xs:string" use="optional" />
+            <xs:attribute name="achievement" type="xs:short" use="optional" />
+            <xs:attribute name="keys" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="coins" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="armor" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="costumeSuffix" type="xs:string" use="optional" />
+            <xs:attribute name="black" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="card" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="pill" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="canShoot" type="xs:boolean" use="optional" />
+            <xs:attribute name="pocketActive" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="extraportrait" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="root" type="xs:string" use="required" />
+      <xs:attribute name="portraitroot" type="xs:string" use="required" />
+      <xs:attribute name="nameimageroot" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,35 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="backdrops">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="backdrop">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="gfx" type="xs:string" use="optional" />
+            <xs:attribute name="walls" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="wallvariants" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="floors" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="floorvariants" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="lfloorgfx" type="xs:string" use="optional" />
+            <xs:attribute name="nfloorgfx" type="xs:string" use="optional" />
+            <xs:attribute name="props" type="xs:string" use="optional" />
+            <xs:attribute name="rocks" type="xs:string" use="optional" />
+            <xs:attribute name="pit" type="xs:string" use="optional" />
+            <xs:attribute name="bridge" type="xs:string" use="optional" />
+            <xs:attribute name="door" type="xs:string" use="optional" />
+            <xs:attribute name="holeinwall" type="xs:string" use="optional" />
+            <xs:attribute name="watergfx" type="xs:string" use="optional" />
+            <xs:attribute name="reversewatergfx" type="xs:boolean" use="optional" />
+            <xs:attribute name="waterpitsmode" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="waterpit" type="xs:string" use="optional" />
+            <xs:attribute name="spikes" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="gfxroot" type="xs:string" use="required" />
+      <xs:attribute name="gridgfxroot" type="xs:string" use="required" />
+      <xs:attribute name="effectsgfxroot" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

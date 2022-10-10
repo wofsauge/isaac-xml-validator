@@ -1,0 +1,24 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="stages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="stage">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="path" type="xs:string" use="required" />
+            <xs:attribute name="playerspot" type="xs:string" use="optional" />
+            <xs:attribute name="bossspot" type="xs:string" use="optional" />
+            <xs:attribute name="music" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="backdrop" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="suffix" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="root" type="xs:string" use="required" />
+      <xs:attribute name="greedroot" type="xs:string" use="required" />
+      <xs:attribute name="bossgfxroot" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

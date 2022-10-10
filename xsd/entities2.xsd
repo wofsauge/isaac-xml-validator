@@ -1,0 +1,84 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="entities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="entity">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="bestiary">
+                  <xs:complexType>
+                    <xs:attribute name="anim" type="xs:string" use="optional" />
+                    <xs:attribute name="transform" type="xs:string" use="optional" />
+                    <xs:attribute name="overlay" type="xs:string" use="optional" />
+                    <xs:attribute name="anm2path" type="xs:string" use="optional" />
+                    <xs:attribute name="parent" type="xs:decimal" use="optional" />
+                    <xs:attribute name="alt" type="xs:string" use="optional" />
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="gibs">
+                  <xs:complexType>
+                    <xs:attribute name="amount" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="blood" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="bone" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="eye" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="gut" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="large" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="worm" type="xs:unsignedByte" use="optional" />
+                    <xs:attribute name="sound_baby" type="xs:unsignedByte" use="optional" />
+                    <xs:attribute name="dust" type="xs:unsignedByte" use="optional" />
+                    <xs:attribute name="rock" type="xs:unsignedByte" use="optional" />
+                    <xs:attribute name="sound_bone" type="xs:unsignedByte" use="optional" />
+                    <xs:attribute name="poop" type="xs:unsignedByte" use="optional" />
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="preload">
+                  <xs:complexType>
+                    <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                    <xs:attribute name="variant" type="xs:unsignedByte" use="required" />
+                    <xs:attribute name="subtype" type="xs:unsignedByte" use="optional" />
+                  </xs:complexType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" name="preload-snd">
+                  <xs:complexType>
+                    <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="anm2path" type="xs:string" use="required" />
+            <xs:attribute name="baseHP" type="xs:decimal" use="required" />
+            <xs:attribute name="boss" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="champion" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="collisionDamage" type="xs:decimal" use="required" />
+            <xs:attribute name="collisionMass" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="collisionRadius" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="friction" type="xs:decimal" use="required" />
+            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="numGridCollisionPoints" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="shadowSize" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="stageHP" type="xs:decimal" use="optional" />
+            <xs:attribute name="variant" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="tags" type="xs:string" use="optional" />
+            <xs:attribute name="collisionInterval" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="subtype" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="bossID" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="portrait" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="gridCollision" type="xs:string" use="optional" />
+            <xs:attribute name="hasFloorAlts" type="xs:boolean" use="optional" />
+            <xs:attribute name="reroll" type="xs:boolean" use="optional" />
+            <xs:attribute name="shutdoors" type="xs:boolean" use="optional" />
+            <xs:attribute name="shieldStrength" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="collisionRadiusYMulti" type="xs:decimal" use="optional" />
+            <xs:attribute name="gibAmount" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="gibFlags" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="anm2root" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:unsignedByte" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

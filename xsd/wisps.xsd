@@ -1,0 +1,50 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="wisps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="color">
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="r" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="g" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="b" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="or" type="xs:short" use="optional" />
+            <xs:attribute name="og" type="xs:short" use="optional" />
+            <xs:attribute name="ob" type="xs:short" use="optional" />
+            <xs:attribute name="cr" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="cg" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="cb" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="ca" type="xs:unsignedByte" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="wisp">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:string" use="required" />
+            <xs:attribute name="hp" type="xs:decimal" use="optional" />
+            <xs:attribute name="layer" type="xs:byte" use="optional" />
+            <xs:attribute name="damage" type="xs:decimal" use="optional" />
+            <xs:attribute name="flameColor" type="xs:string" use="optional" />
+            <xs:attribute name="coreColor" type="xs:string" use="optional" />
+            <xs:attribute name="tearColor" type="xs:string" use="optional" />
+            <xs:attribute name="tearScale" type="xs:decimal" use="optional" />
+            <xs:attribute name="fireDelay" type="xs:byte" use="optional" />
+            <xs:attribute name="shotSpeed" type="xs:decimal" use="optional" />
+            <xs:attribute name="tearFlags" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="tearVariant" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="procChance" type="xs:decimal" use="optional" />
+            <xs:attribute name="tearFlags2" type="xs:string" use="optional" />
+            <xs:attribute name="coreGfx" type="xs:string" use="optional" />
+            <xs:attribute name="tearColor2" type="xs:string" use="optional" />
+            <xs:attribute name="tearScale2" type="xs:decimal" use="optional" />
+            <xs:attribute name="damageMultiplier2" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="canShoot" type="xs:boolean" use="optional" />
+            <xs:attribute name="count" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="priority" type="xs:byte" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="gfxroot" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

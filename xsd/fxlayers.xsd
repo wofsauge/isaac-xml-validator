@@ -1,0 +1,37 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="fxLayers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="fx">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element maxOccurs="unbounded" name="gfx">
+                <xs:complexType>
+                  <xs:attribute name="path" type="xs:string" use="required" />
+                  <xs:attribute name="roomshape" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="path" type="xs:string" use="required" />
+            <xs:attribute name="numLayers" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="xMin" type="xs:decimal" use="optional" />
+            <xs:attribute name="xMax" type="xs:decimal" use="optional" />
+            <xs:attribute name="yMin" type="xs:decimal" use="optional" />
+            <xs:attribute name="yMax" type="xs:decimal" use="optional" />
+            <xs:attribute name="layer" type="xs:string" use="required" />
+            <xs:attribute name="stage" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="altStages" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="onlyDefaultBackdrop" type="xs:boolean" use="optional" />
+            <xs:attribute name="blendMode" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="parallax" type="xs:decimal" use="optional" />
+            <xs:attribute name="backdrop" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="useBGShader" type="xs:unsignedByte" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="gfxroot" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

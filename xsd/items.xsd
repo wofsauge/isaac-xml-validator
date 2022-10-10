@@ -1,0 +1,96 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="items">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element maxOccurs="unbounded" name="passive">
+            <xs:complexType>
+              <xs:attribute name="cache" type="xs:string" use="optional" />
+              <xs:attribute name="description" type="xs:string" use="required" />
+              <xs:attribute name="gfx" type="xs:string" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="name" type="xs:string" use="required" />
+              <xs:attribute name="hearts" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="maxhearts" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="keys" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="coins" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="bombs" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="special" type="xs:boolean" use="optional" />
+              <xs:attribute name="maxcharges" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="hidden" type="xs:boolean" use="optional" />
+              <xs:attribute name="soulhearts" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="devilprice" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="blackhearts" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="addcostumeonpickup" type="xs:boolean" use="optional" />
+              <xs:attribute name="cooldown" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="familiar">
+            <xs:complexType>
+              <xs:attribute name="description" type="xs:string" use="required" />
+              <xs:attribute name="gfx" type="xs:string" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="name" type="xs:string" use="required" />
+              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="devilprice" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="cache" type="xs:string" use="optional" />
+              <xs:attribute name="hidden" type="xs:boolean" use="optional" />
+              <xs:attribute name="bombs" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="active">
+            <xs:complexType>
+              <xs:attribute name="cache" type="xs:string" use="optional" />
+              <xs:attribute name="description" type="xs:string" use="required" />
+              <xs:attribute name="gfx" type="xs:string" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="maxcharges" type="xs:unsignedInt" use="optional" />
+              <xs:attribute name="name" type="xs:string" use="required" />
+              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="cooldown" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="addcostumeonpickup" type="xs:boolean" use="optional" />
+              <xs:attribute name="special" type="xs:boolean" use="optional" />
+              <xs:attribute name="passivecache" type="xs:boolean" use="optional" />
+              <xs:attribute name="bombs" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="devilprice" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="chargetype" type="xs:string" use="optional" />
+              <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+              <xs:attribute name="initcharge" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="coins" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="keys" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="shopprice" type="xs:unsignedByte" use="optional" />
+              <xs:attribute name="hidden" type="xs:boolean" use="optional" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="trinket">
+            <xs:complexType>
+              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="description" type="xs:string" use="required" />
+              <xs:attribute name="gfx" type="xs:string" use="required" />
+              <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+              <xs:attribute name="name" type="xs:string" use="required" />
+              <xs:attribute name="cache" type="xs:string" use="optional" />
+              <xs:attribute name="addcostumeonpickup" type="xs:boolean" use="optional" />
+              <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="null">
+            <xs:complexType>
+              <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+              <xs:attribute name="name" type="xs:string" use="required" />
+              <xs:attribute name="cache" type="xs:string" use="optional" />
+              <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+              <xs:attribute name="cooldown" type="xs:unsignedShort" use="optional" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="gfxroot" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:unsignedByte" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

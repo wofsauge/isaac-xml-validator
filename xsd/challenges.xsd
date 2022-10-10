@@ -1,0 +1,42 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="challenges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="challenge">
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="endstage" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="roomfilter" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="cursefilter" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="getcurse" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="startingitems" type="xs:string" use="optional" />
+            <xs:attribute name="startingtrinkets" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="playertype" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="achievements" type="xs:string" use="optional" />
+            <xs:attribute name="altpath" type="xs:boolean" use="optional" />
+            <xs:attribute name="canshoot" type="xs:boolean" use="optional" />
+            <xs:attribute name="soulhp" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="blackhp" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="startingpill" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="startingcard" type="xs:byte" use="optional" />
+            <xs:attribute name="maxdamage" type="xs:boolean" use="optional" />
+            <xs:attribute name="minfirerate" type="xs:decimal" use="optional" />
+            <xs:attribute name="minshotspeed" type="xs:boolean" use="optional" />
+            <xs:attribute name="coins" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="maxhp" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="redhp" type="xs:byte" use="optional" />
+            <xs:attribute name="difficulty" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="megasatan" type="xs:boolean" use="optional" />
+            <xs:attribute name="adddamage" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="bigrange" type="xs:boolean" use="optional" />
+            <xs:attribute name="secretpath" type="xs:boolean" use="optional" />
+            <xs:attribute name="startingitems2" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:unsignedByte" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

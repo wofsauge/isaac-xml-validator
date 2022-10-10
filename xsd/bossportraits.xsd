@@ -1,0 +1,30 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:element name="bosses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="boss">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element name="alt">
+                <xs:complexType>
+                  <xs:attribute name="stage" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="portrait" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="nameimage" type="xs:string" use="required" />
+            <xs:attribute name="portrait" type="xs:string" use="required" />
+            <xs:attribute name="pivotX" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="pivotY" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="root" type="xs:string" use="required" />
+      <xs:attribute name="anm2" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

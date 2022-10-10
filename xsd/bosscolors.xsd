@@ -1,0 +1,27 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="bosscolors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="boss">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="color">
+                <xs:complexType>
+                  <xs:attribute name="suffix" type="xs:string" use="optional" />
+                  <xs:attribute name="scale" type="xs:decimal" use="optional" />
+                  <xs:attribute name="hp" type="xs:decimal" use="optional" />
+                  <xs:attribute name="anm2path" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="variant" type="xs:unsignedByte" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:unsignedByte" use="required" />
+      <xs:attribute name="anm2root" type="xs:string" use="required" />
+      <xs:attribute name="portraitroot" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
