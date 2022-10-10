@@ -7,7 +7,6 @@
 		padding-top: 60px;
 		padding-bottom: 40px;
 		overflow-y: scroll;
-		background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAZCAYAAAC/zUevAAAAgUlEQVR42u2X0QYAIRBF7/9/bk+l1LLclbJPh+wyw5XMnBhTrjSmyDk/cpzIay7ovVtboeH9IM7LBa21VS6811LKKucxr5TSqLW+6kRevFPOi8+c85oAw8f34p1xXnzGnBe/7Twv3innhWfO+U+8jvCO8I7wjvCO8I7feofj/D/kAijNr7H19kq2AAAAAElFTkSuQmCC");
 	}
 	
 	a:focus, a:active { outline: none; }
@@ -64,18 +63,6 @@
 		-webkit-user-select: none;
 		cursor: pointer;
 		top: 8px;
-		right: 6px;
-		color: #00008F;
-	}
-	
-	.xmllint-info1, .xmllint-info2 {
-		float: right;
-		position: relative;
-		user-select: none;
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		cursor: pointer;
-		top: 15px;
 		right: 6px;
 		color: #00008F;
 	}

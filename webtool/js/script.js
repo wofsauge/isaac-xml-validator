@@ -44,16 +44,7 @@ $(document).ready(function() {
 				return function(e) {
 						xmlData = e.target.result;
 						xmlFileName = f.name;
-						$.ajax({
-							url: "https://wofsauge.github.io/Isaac-XML-Validator/xsd/"+f.name.replace(".xml",".xsd"),
-							success: function(data){ 
-								 schemaData = (new XMLSerializer()).serializeToString(data);
-								 schemaFileName = f.name.replace(".xml",".xsd");
-							},
-							error: function(){
-								alert("There was an error.");
-							}
-						});
+						loadXSDFile(f.name.replace(".xml",".xsd"));
 				};
 			})(f);
 		}
@@ -65,19 +56,29 @@ $(document).ready(function() {
 		e.originalEvent.stopPropagation();
 		e.originalEvent.preventDefault();
 	}
+
+	function loadXSDFile(fileName) {
+		console.log(fileName);
+		$.ajax({
+			url: "https://wofsauge.github.io/Isaac-XML-Validator/xsd/"+fileName,
+			success: function(data){ 
+				 schemaData = (new XMLSerializer()).serializeToString(data);
+				 schemaFileName = fileName;
+				$(".valoutput").removeClass("valColor1").removeClass("valColor2");
+				$(".valtext").text("File loaded successfully: "+fileName); 
+			},
+			error: function(){
+				alert("There was an error.");
+			}
+		});
+	}
 	
 	$(".close").alert();
 	$('#xml_file').bind('dragenter', ignoreDrag).bind('dragover', ignoreDrag).bind('drop', handleFile);
-	$('#schema_file').bind('dragenter', ignoreDrag).bind('dragover', ignoreDrag).bind('drop', handleFile);
 	
 	$("#fileBtn").click(function() {
 		if (!xmlData) { $(".valfiletext").text("Set XML file"); return; }
-		if (!schemaData) { $(".valfiletext").text("Set Schema file"); return; }
-		if (schemaFileName === xmlFileName) { 
-			$(".valfileoutput").removeClass("valColor2").removeClass("valColor1");
-			$(".valfiletext").text("Filenames match"); 
-			return; 
-		}
+		if (!schemaData) { $(".valfiletext").text("No Schema file found for filename '"+xmlFileName+"'!"); return; }
 		$(".console1").val("");
 		$(".valfiletext").text("Validating...");
 
@@ -96,18 +97,14 @@ $(document).ready(function() {
 			$(".valtext").text("Enter XML Data"); 
 			return;
 		}
-		if (editor2.getValue().length < 10) { 
-			$(".valoutput").removeClass("valColor1").removeClass("valColor2");
-			$(".valtext").text("Enter Schema Data"); 
-			return;
-		}
+		
 		$(".console2").val("");		
 		$(".valtext").text("Validating...");
 		
 		var Module = {
 			xml: editor1.getValue(),
 			schema: editor2.getValue(),
-			arguments: ["--noout", "--schema", "file.xsd", "file.xml"]
+			arguments: ["--noout", "--schema", schemaFileName, "file.xml"]
 		};
 		var result = validateXML(Module);
 		xmlInfo(result, ".valoutput", ".valtext", ".console2");
@@ -217,21 +214,7 @@ $(document).ready(function() {
 	});
 	var hlLine2 = editor2.setLineClass(0, "activeline");
 	editor2.setValue(" ");
-	
-	var xmllintInfo = "xmllint using libxml version 20708\n  compiled with: Tree Output Push Reader Patterns Writer " +
-					  "SAXv1 DTDValid HTML Legacy C14N Catalog XPath XPointer XInclude Iconv ISO8859X " + 
-					  "Unicode Regexps Automata Expr Schemas Schematron Modules Debug Zlib \n";
-	
-	$(".xmllint-info1").click(function() {
-		var cval = $(".console1").val();
-		$(".console1").val(cval + "\n" + xmllintInfo);
-	});
-
-	$(".xmllint-info2").click(function() {
-		var cval = $(".console2").val();
-		$(".console2").val(cval + "\n" + xmllintInfo);
-	});
-	
+		
 	$(".tltp").tooltip({
 		placement: "right",
 		delay: { show: 100, hide: 120 },

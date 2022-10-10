@@ -19,8 +19,6 @@
 
 <body>
     <div class="container">
-		
-		<h1>&lt; xml.js &gt;</h1>
 		<h2>JavaScript XML Schema Validation</h2>
 		
 		<div class="tabbable maintabs">
@@ -36,21 +34,12 @@
 						<div class="files_wrapper">
 							<div class="xmlarea_file" id="xml_file">Drop your xml file here</div>
 						</div>
-					<p><h3>XML Schema:</h3>
-						<div class="files_wrapper">
-							<div class="xmlarea_file" id="schema_file">Drop your schema file here</div>
-						</div>
-					<br>
-					<p><h2>Output:</h2>
+					<p><h3>Output:</h3>
 						<div class="valfileoutput">
-							<div class="valfiletext">ready</div>
+							<div class="valfiletext"></div>
 						</div>
-					<br>
-					<p><h2 class="t-left">Console:</h2><div class="xmllint-info1">xmllint info</div>
 						<textarea class="console1" readonly="readonly" rows="5"></textarea>
-					<br>
 					<a class="btn valBtn" id="fileBtn">Validate</a>
-					<br>
 				</div>
 				
 				<div class="tab-pane fade in" id="tab2">
@@ -60,12 +49,12 @@
 					<p><h3 class="t-left">XML Schema:</h3><div class="t-right2 tltp" rel="tooltip"">Load Schema data from files tab</div>
 						<textarea class="xmlarea_text" id="schema_data" rows="6"></textarea>
 					<br>
-					<p><h2>Output:</h2>
+					<p><h3>Output:</h3>
 						<div class="valoutput">
 							<div class="valtext">ready</div>
 						</div>
 					<br>
-					<p><h2 class="t-left">Console:</h2><div class="xmllint-info2">xmllint info</div>
+					<p><h3 class="t-left">Console:</h3>
 						<textarea class="console2" readonly="readonly" rows="5"></textarea>
 					<br>
 					<a class="btn valBtn" id="textBtn">Validate</a>
@@ -111,7 +100,6 @@ var xmllint = validateXML(Module);
       <footer>
 		<p>Built by <a href="http://github.com/syssgx">@syssgx</a> and based on <a href="http://github.com/kripken/xml.js">xml.js</a> by <a href="http://github.com/kripken">@kripken</a>.</p>
         <p>Code licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> licence.</p>
-		<p><img src="img/cc3.png"></p>
       </footer>
 
     </div> <!-- /container -->
