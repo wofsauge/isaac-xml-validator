@@ -42,13 +42,18 @@ $(document).ready(function() {
 			filereader.readAsText(f);
 			filereader.onload = (function(theFile) {
 				return function(e) {
-					if (outputdiv.substr(1,3) === "xml") {
 						xmlData = e.target.result;
 						xmlFileName = f.name;
-					} else {
-						schemaData = e.target.result;
-						schemaFileName = f.name;
-					}
+						$.ajax({
+							url: "https://wofsauge.github.io/Isaac-XML-Validator/xsd/"+f.name.replace(".xml",".xsd"),
+							success: function(data){ 
+								 schemaData = (new XMLSerializer()).serializeToString(data);
+								 schemaFileName = f.name.replace(".xml",".xsd");
+							},
+							error: function(){
+								alert("There was an error.");
+							}
+						});
 				};
 			})(f);
 		}
