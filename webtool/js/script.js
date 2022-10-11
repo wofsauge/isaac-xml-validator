@@ -4,7 +4,16 @@
    Code licensed under CC BY 3.0 licence
    http://creativecommons.org/licenses/by/3.0/
    ========================================================================== */
- 
+var fileNameLookup = {
+	"ambushRoom" : "ambush",
+	"bossoverlay": "bossoverlays",
+	"bosses": "bossportraits",
+	"costumes": "costumes2",
+	"entities": "entities2",
+	"preloads": "preload",
+};
+
+
 $(document).ready(function() {
 	"use strict";
 
@@ -44,7 +53,7 @@ $(document).ready(function() {
 				return function(e) {
 						xmlData = e.target.result;
 						xmlFileName = f.name;
-						loadXSDFile(f.name.replace(".xml",".xsd"));
+						loadXSDFile(f.name.replace(".xml",""));
 				};
 			})(f);
 		}
@@ -57,18 +66,56 @@ $(document).ready(function() {
 		e.originalEvent.preventDefault();
 	}
 
+	// Workaround for HTTPS imports not working with this xsd validator library
+	// preload referenced master xsd file for later use
+	var refXML;
+	$.ajax({
+		url: "https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd",
+		dataType: "xml",
+		success: function(data){ 
+			refXML = data;
+		},
+		error: function(){
+			alert("There was an error.");
+		}
+	});
+
 	function loadXSDFile(fileName) {
-		console.log(fileName);
+		if (!fileName.trim()){
+			return; // is empty
+		}
+		fileName = fileName.toLowerCase();
+		if(fileNameLookup[fileName]){
+			fileName = fileNameLookup[fileName];
+		}
+		fileName = fileName + ".xsd";
+
 		$.ajax({
 			url: "https://wofsauge.github.io/Isaac-XML-Validator/xsd/"+fileName,
 			success: function(data){ 
+				// Workaround for HTTPS imports not working with this xsd validator library
+				// manually import the file content
+				for (let c of data.firstChild.childNodes) {
+					if(c.nodeName == "xs:import"){
+						for(let importNode of refXML.firstChild.childNodes){
+							if(importNode.nodeName != "#text"){
+								c.parentNode.insertBefore(importNode, c);
+							}
+						}
+						c.parentNode.removeChild(c);
+						break;
+					}
+				}
+
 				 schemaData = (new XMLSerializer()).serializeToString(data);
+				 schemaData = schemaData.replace("xsisaac:",""); // replace schema identifier, which no longer is needed due to manual import
 				 schemaFileName = fileName;
+
 				$(".valoutput").removeClass("valColor1").removeClass("valColor2");
 				$(".valtext").text("File loaded successfully: "+fileName); 
 			},
 			error: function(){
-				alert("There was an error.");
+				alert("No XSD Schema file found for file: "+fileName);
 			}
 		});
 	}
@@ -132,6 +179,8 @@ $(document).ready(function() {
 		editor1.setLineClass(hlLine1, null);
 		hlLine1 = editor1.setLineClass(editor1.getCursor().line, "activeline");
 		editor1.matchHighlight("CodeMirror-matchhighlight");
+		var xsdFileName = editor1.getLine(0).trim().replace("<","").split(" ")[0];
+		loadXSDFile(xsdFileName);
 	  },
 	  extraKeys: {
             "F11": function() {
