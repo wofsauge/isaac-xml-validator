@@ -53,6 +53,9 @@ $(document).ready(function() {
 			fileName = fileNameLookup[fileName];
 		}
 		fileName = fileName + ".xsd";
+		if (fileName === schemaFileName){
+			return;
+		}
 
 		$.ajax({
 			url: "https://wofsauge.github.io/Isaac-XML-Validator/xsd/"+fileName,
@@ -100,7 +103,7 @@ $(document).ready(function() {
 		var Module = {
 			xml: editor1.getValue(),
 			schema: schemaData,
-			arguments: ["--noout", "--schema", schemaFileName, "file.xml"]
+			arguments: ["--noout", "--schema", schemaFileName, schemaFileName.replace(".xsd",".xml")]
 		};
 		var result = validateXML(Module);
 		xmlInfo(result, ".valoutput", ".valtext", ".console");
