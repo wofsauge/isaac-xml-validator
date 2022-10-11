@@ -58,7 +58,7 @@
             <xs:attribute name="id" type="xs:unsignedShort" use="required" />
             <xs:attribute name="name" type="xs:string" use="required" />
             <xs:attribute name="numGridCollisionPoints" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="shadowSize" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="shadowSize" type="xs:decimal" use="required" />
             <xs:attribute name="stageHP" type="xs:decimal" use="optional" />
             <xs:attribute name="variant" type="xs:unsignedInt" use="required" />
             <xs:attribute name="tags" type="xs:string" use="optional" />

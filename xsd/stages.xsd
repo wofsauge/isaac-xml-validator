@@ -13,6 +13,7 @@
             <xs:attribute name="music" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="backdrop" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="suffix" type="xs:string" use="optional" />
+            <xs:attribute name="fx" type="xs:string" use="optional"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

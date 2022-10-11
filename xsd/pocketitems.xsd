@@ -33,7 +33,7 @@
           </xs:element>
           <xs:element name="pilleffect">
             <xs:complexType>
-              <xs:attribute name="announcer2" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="announcer2" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="id" type="xs:unsignedInt" use="required" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="announcer" type="xs:unsignedShort" use="required" />
