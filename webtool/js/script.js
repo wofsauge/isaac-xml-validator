@@ -132,7 +132,8 @@ $(document).ready(function() {
 	  mode: "application/xml",
 	  lineNumbers: true,
 	  lineWrapping: true,
-	  theme: "night",
+	  darkTheme: "material-palenight",
+	  theme: "material-palenight",
 	  onCursorActivity: function() {
 		editor1.setLineClass(hlLine1, null);
 		hlLine1 = editor1.setLineClass(editor1.getCursor().line, "activeline");
@@ -179,6 +180,5 @@ $(document).ready(function() {
             }
         }
 	});
-	var hlLine1 = editor1.setLineClass(0, "activeline");
 	editor1.setValue(" ");
 });

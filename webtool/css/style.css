@@ -4,8 +4,7 @@
    ========================================================================== */
 
 	body {
-		padding-top: 60px;
-		padding-bottom: 40px;
+		padding-top: 20px;
 		overflow-y: scroll;
 	}
 	
@@ -14,45 +13,7 @@
 	p { font-size: 14px; }
 	
 	.maintabs { padding-top: 30px; }
-	
-	#about>h3, #about>h4 {
-		text-align: center;
-	}
-	
-	.about-tab {
-		width: 600px; 
-		margin-left: auto; 
-		margin-right: auto; 
-		margin-top: 40px;
-	}
-	
-	.files_wrapper {
-		margin-top: 5px;
-		padding: 10px;
-		border-radius: 5px;
-		border: 1px solid rgb(221,221,221);
-		transition: all 0.2s ease-in-out;
-		-webkit-transition: all 0.2s ease-in-out;
-		-moz-transition: all 0.2s ease-in-out;
-	}
-	
-	.files_wrapper:hover {
-		background: #ebebeb;
-		-moz-box-shadow:    0px 0px 3px black;
-		-webkit-box-shadow: 0px 0px 3px black;
-		box-shadow:         0px 0px 3px black;
-	}
-	
-	.xmlarea_file {
-		border: 2px dashed rgb(221,221,221);
-		border-radius: 5px;
-		padding: 25px;
-		text-align: center;
-		font-size: 14px;
-	}
-	
-	.xmlarea_file:hover { border: 2px solid white; }
-	
+
 	.t-left { display: inline; }
 	
 	.xmlarea_text {
@@ -63,13 +24,13 @@
 		max-width: 940px;
 	}
 	
-	.valfileoutput, .valoutput {
+	.valoutput {
 		margin-top: 5px;
 		border-radius: 5px;
 		border: 2px solid rgb(221,221,221);
 	}
 	
-	.valfiletext, .valtext {
+	.valtext {
 		width: auto;
 		text-align: center;
 		padding: 15px;
@@ -142,4 +103,3 @@
 		font-weight: bold;
 		margin-top: 30px;
 	}
-	
