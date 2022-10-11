@@ -168,6 +168,7 @@ $(document).ready(function() {
 			  break;
 		  }
 	  }
+	  editor1.setSelection({line:0,ch:0});
 	});
 	editor1.setValue(" ");
 });
