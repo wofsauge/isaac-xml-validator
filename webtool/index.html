@@ -22,78 +22,25 @@
 		<h2>JavaScript XML Schema Validation</h2>
 		
 		<div class="tabbable maintabs">
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#tab1" data-toggle="tab"><h4>XML Files</h4></a></li>
-				<li><a href="#tab2" data-toggle="tab"><h4>XML Text</h4></a></li>
-				<li><a href="#about" data-toggle="tab"><h4>About</h4></a></li>
-			</ul>
 			
 			<div class="tab-content">
-				<div class="tab-pane active fade in" id="tab1">
-					<p><h3>XML file to validate:</h3>
-						<div class="files_wrapper">
-							<div class="xmlarea_file" id="xml_file">Drop your xml file here</div>
-						</div>
-					<p><h3>Output:</h3>
-						<div class="valfileoutput">
-							<div class="valfiletext"></div>
-						</div>
-						<textarea class="console1" readonly="readonly" rows="5"></textarea>
-					<a class="btn valBtn" id="fileBtn">Validate</a>
-				</div>
-				
-				<div class="tab-pane fade in" id="tab2">
-					<p><h3 class="t-left">XML file to validate:</h3><div class="t-right1 tltp" rel="tooltip">Load XML data from files tab</div>
+				<div class="tab-pane active fade in" id="tab2">
+					<p><h3 class="t-left">XML file to validate:</h3>
+						<div>
+							<a class="btn" style="float:right" id="clearBtn">Clear</a>
+						<div class="tltp" rel="tooltip">Paste text, or Drag&drop a file into the area to load it.</div>
+						<div class="tltp" rel="tooltip">F11 in editor for fullscreen</div>
+					</div>
 						<textarea class="xmlarea_text" id="xml_data" rows="6"></textarea>
-					<br>
-					<p><h3 class="t-left">XML Schema:</h3><div class="t-right2 tltp" rel="tooltip"">Load Schema data from files tab</div>
-						<textarea class="xmlarea_text" id="schema_data" rows="6"></textarea>
-					<br>
 					<p><h3>Output:</h3>
 						<div class="valoutput">
-							<div class="valtext">ready</div>
+							<div class="valtext">Please enter an xml file</div>
+							<textarea class="console" readonly="readonly" rows="5"></textarea>
 						</div>
-					<br>
-					<p><h3 class="t-left">Console:</h3>
-						<textarea class="console2" readonly="readonly" rows="5"></textarea>
-					<br>
 					<a class="btn valBtn" id="textBtn">Validate</a>
 				</div>
-				
-				<div class="tab-pane fade in" id="about">
-					<h3 style="margin-top: 20px;">JavaScript client side XML Schema Validation</h3>
-					<p><h4>Based on the xmllint.js imlementation</h4></p>
-					<div class="about-tab">
-						<div style="float: left;">
-							<p><h4>Built by:</h4></p>
-							<p>Panagiotis Tsalaportas <a href="http://github.com/syssgx">@syssgx</a></p>
-							<p>Alon Zakai <a href="http://github.com/kripken">@kripken</a></p>
-						</div>
-						<div style="float: right; text-align: right;">
-							<p><h4>Tools:</h4></p>
-							<p><a href="http://xmlsoft.org">libxml</a></p>
-							<p><a href="http://github.com/kripken/emscripten">emscripten</a></p>
-						</div> 
-						<div style="clear: both;"><br><br>
-							<p><h4>How to</h4></p>
-							<p>Include <a href="http://syssgx.github.com/xml.js/js/xmllint.js">xmllint.js</a> in the page.</p>
-<pre class="prettyprint linenums">
-//create an object
-var Module = {
-      xml: xmlData,
-      schema: schemaData,
-      arguments: ["--noout", "--schema", schemaFileName, xmlFileName]
-};
-
-//and call function
-var xmllint = validateXML(Module);
-</pre>
-						<p>The Module properties <code>xmlData</code> and <code>schemaData</code> are strings of the content.</p>
-						<br><br>
-						</div>
-				</div>
-			</div>
 		</div>
+	</div>
 
       <hr>
 
