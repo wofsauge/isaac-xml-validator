@@ -65,6 +65,18 @@
 		box-shadow:         0px 0px 2px black !important;
 	}
 	
+	.valBtn {
+		display: block;
+		width: 100%;
+		padding: 22px 22px;
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		font-size: 24px;
+		font-weight: bold;
+		margin-top: 30px;
+	}
+	
 	.CodeMirror pre {
 		color: #f8f8f8;
 		line-height: 14px;
@@ -87,19 +99,5 @@
         border: 0px solid #BBBBBB;
         opacity: 1;
     }
-	
-	span.CodeMirror-matchhighlight { background: #0A74FF !important; }
-	.CodeMirror-focused span.CodeMirror-matchhighlight { background: #0A74FF !important; }
-	.activeline { background: #001B3D !important; }
-	
-	.valBtn {
-		display: block;
-		width: auto;
-		padding: 22px 22px;
-		user-select: none;
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		font-size: 24px;
-		font-weight: bold;
-		margin-top: 30px;
-	}
+      .cm-matchhighlight {background-color: #7c7c7c82}
+      .CodeMirror-selection-highlight-scrollbar {background-color: rgba(50, 204, 209, 0.623)}

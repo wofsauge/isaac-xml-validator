@@ -1,65 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Binding of Isaac XML File Validator</title>
-	<meta name="description" content="Binding of Isaac XML File Validator">
-	<meta name="keywords" content="XML,JavaScript,schema,validation,file">
-	<meta name="author" content="syssgx, kripken">
-	<meta name="viewport" content="width=device-width">
+    <title>Binding of Isaac XML File Validator</title>
+    <meta name="description" content="Binding of Isaac XML File Validator" />
+    <meta name="keywords" content="XML,JavaScript,schema,validation,file" />
+    <meta name="author" content="syssgx, kripken" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/prettify.css" />
+    <link rel="stylesheet" href="css/material.css" />
+    <link rel="stylesheet" href="css/codemirror.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/prettify.css">
-	<link rel="stylesheet" href="css/material.css">
-	<link rel="stylesheet" href="css/codemirror.css">
-	<link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
+  <body>
     <div class="container">
-		<h2>Binding of Isaac XML File Validator</h2>
-		
-		<div class="tabbable maintabs">
-			
-			<div class="tab-content">
-				<div class="tab-pane active fade in" id="tab2">
-					<p><h3 class="t-left">XML file to validate:</h3>
-						<div>
-							<a class="btn" style="float:right" id="clearBtn">Clear</a>
-						<div class="tltp" rel="tooltip">Paste text, or Drag&drop a file into the area to load it.</div>
-						<div class="tltp" rel="tooltip">F11 in editor for fullscreen</div>
-					</div>
-						<textarea class="xmlarea_text" id="xml_data" rows="6"></textarea>
-					<p><h3>Output:</h3>
-						<div class="valoutput">
-							<div class="valtext">Please enter an xml file</div>
-							<textarea class="console" readonly="readonly" rows="5"></textarea>
-						</div>
-					<a class="btn valBtn" id="textBtn">Validate</a>
-				</div>
-		</div>
-	</div>
+      <h2>Binding of Isaac XML File Validator</h2>
 
-      <hr>
+      <div class="tabbable maintabs">
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <p></p>
+            <h3 class="t-left">XML file to validate:</h3>
+            <div>
+              <button class="btn" style="float: right" id="clearBtn">Clear</button>
+              <div class="tltp" rel="tooltip">
+                Paste text, or Drag&drop a file into the area to load it.
+              </div>
+              <div class="tltp" rel="tooltip">F11 in editor for fullscreen</div>
+            </div>
+			<form>
+            <textarea class="xmlarea_text" id="xml_data" rows="6"></textarea>
+		</form>
+            <p></p>
+            <h3>Output:</h3>
+            <div class="valoutput">
+              <div class="valtext">Please enter an xml file</div>
+              <textarea class="console" readonly="readonly" rows="5"></textarea>
+            </div>
+            <button class="btn valBtn" id="textBtn">Validate</button>
+          </div>
+        </div>
+      </div>
+
+      <hr />
 
       <footer>
-		<p>Built by <a href="http://github.com/wofsauge">@Wofsauge</a> based on <a href="http://github.com/kripken/xml.js">xml.js</a> by <a href="http://github.com/kripken">@kripken</a> and <a href="http://github.com/syssgx">@syssgx</a>.</p>
+        <p>
+          Built by <a href="http://github.com/wofsauge">@Wofsauge</a> based on
+          <a href="http://github.com/kripken/xml.js">xml.js</a> by
+          <a href="http://github.com/kripken">@kripken</a> and
+          <a href="http://github.com/syssgx">@syssgx</a>.
+        </p>
       </footer>
+    </div>
+    <!-- /container -->
 
-    </div> <!-- /container -->
-	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-	<script src="js/libs/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>');
+    </script>
+    <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/codemirror.js"></script>
     <script src="js/libs/searchcursor.js"></script>
     <script src="js/libs/match-highlighter.js"></script>
     <script src="js/libs/xml.js"></script>
-	<script src="js/libs/prettify.js"></script>
-	<script src="js/xmllint.js"></script>
-	<script src="js/script.js"></script>
-</body>
-
+    <script src="js/libs/prettify.js"></script>
+    <script src="js/xmllint.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>

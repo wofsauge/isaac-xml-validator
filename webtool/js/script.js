@@ -27,8 +27,7 @@ $(document).ready(function() {
 		window.prettyPrint && prettyPrint();
 	})();
 	
-	var xmlData = 0, schemaData = 0,
-		xmlFileName, schemaFileName;
+	var schemaData = 0, schemaFileName;
 
 	// Workaround for HTTPS imports not working with this xsd validator library
 	// preload referenced master xsd file for later use
@@ -134,51 +133,67 @@ $(document).ready(function() {
 	  lineWrapping: true,
 	  darkTheme: "material-palenight",
 	  theme: "material-palenight",
-	  onCursorActivity: function() {
-		editor1.setLineClass(hlLine1, null);
-		hlLine1 = editor1.setLineClass(editor1.getCursor().line, "activeline");
-		editor1.matchHighlight("CodeMirror-matchhighlight");
-		for (let index = 0; index < editor1.lineCount(); index++) {
-			var line = editor1.getLine(index);
-			if (!line.trim().startsWith("<!") && line.trim().startsWith("<")){
-				var xsdFileName = line.trim().replace(">","").split("<")[1].split(" ")[0];
-				loadXSDFile(xsdFileName);
-				break;
-			}
-		}
-	  },
 	  extraKeys: {
-            "F11": function() {
-			  var curPos = editor1.getCursor();
-			  editor1.setCursor(0,0);
-              var scroller = editor1.getScrollerElement();
-              if (scroller.className.search(/\bCodeMirror-fullscreen\b/) === -1) {
-                scroller.className += " CodeMirror-fullscreen";
-                scroller.style.height = "100%";
-                scroller.style.width = "100%";
-                editor1.refresh();
-				editor1.setCursor(curPos.line,curPos.ch);
-              } else {
-                scroller.className = scroller.className.replace(" CodeMirror-fullscreen", "");
-                scroller.style.height = '';
-                scroller.style.width = '';
-                editor1.refresh();
-				editor1.setCursor(curPos.line,curPos.ch);
-              }
-            },
-            "Esc": function() {
-			  var curPos = editor1.getCursor();
-			  editor1.setCursor(0,0);
-              var scroller = editor1.getScrollerElement();
-              if (scroller.className.search(/\bCodeMirror-fullscreen\b/) !== -1) {
-                scroller.className = scroller.className.replace(" CodeMirror-fullscreen", "");
-                scroller.style.height = '';
-                scroller.style.width = '';
-                editor1.refresh();
-				editor1.setCursor(curPos.line,curPos.ch);
-              }
-            }
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
         }
+      }
+	});
+
+	CodeMirror.on(editor1, "change", function() {
+	  for (let index = 0; index < editor1.lineCount(); index++) {
+		  var line = editor1.getLine(index);
+		  if (!line.trim().startsWith("<!") && line.trim().startsWith("<")){
+			  var xsdFileName = line.trim().replace(">","").split("<")[1].split(" ")[0];
+			  loadXSDFile(xsdFileName);
+			  break;
+		  }
+	  }
 	});
 	editor1.setValue(" ");
 });
+
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: https://codemirror.net/5/LICENSE
+
+(function(mod) {
+	if (typeof exports == "object" && typeof module == "object") // CommonJS
+	  mod(require("../../lib/codemirror"));
+	else if (typeof define == "function" && define.amd) // AMD
+	  define(["../../lib/codemirror"], mod);
+	else // Plain browser env
+	  mod(CodeMirror);
+  })(function(CodeMirror) {
+	"use strict";
+  
+	CodeMirror.defineOption("fullScreen", false, function(cm, val, old) {
+	  if (old == CodeMirror.Init) old = false;
+	  if (!old == !val) return;
+	  if (val) setFullscreen(cm);
+	  else setNormal(cm);
+	});
+  
+	function setFullscreen(cm) {
+	  var wrap = cm.getWrapperElement();
+	  cm.state.fullScreenRestore = {scrollTop: window.pageYOffset, scrollLeft: window.pageXOffset,
+									width: wrap.style.width, height: wrap.style.height};
+	  wrap.style.width = "";
+	  wrap.style.height = "auto";
+	  wrap.className += " CodeMirror-fullscreen";
+	  document.documentElement.style.overflow = "hidden";
+	  cm.refresh();
+	}
+  
+	function setNormal(cm) {
+	  var wrap = cm.getWrapperElement();
+	  wrap.className = wrap.className.replace(/\s*CodeMirror-fullscreen\b/, "");
+	  document.documentElement.style.overflow = "";
+	  var info = cm.state.fullScreenRestore;
+	  wrap.style.width = info.width; wrap.style.height = info.height;
+	  window.scrollTo(info.scrollLeft, info.scrollTop);
+	  cm.refresh();
+	}
+  });
