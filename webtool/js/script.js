@@ -114,6 +114,21 @@ $(document).ready(function() {
 	
 	function xmlInfo(result, output1, output2, consoleprint) {
 		var cval = $(consoleprint).val();
+		var arrayOfLines = result.split('\n');
+		arrayOfLines.forEach(item => {
+			var line, element, attr;
+			var lineIdent = item.split(":");
+			var elementIdent = item.split(": Element '");
+			var attrIdent = item.split(", attribute '");
+			if (lineIdent.length > 1) line = lineIdent[1];
+			if (elementIdent.length > 1) element = elementIdent[1].split("'")[0];
+			if (attrIdent.length > 1) attr = attrIdent[1].split("'")[0];
+
+			var query = attr || element;
+			if (typeof query === "undefined" || typeof line === "undefined") return;
+			var searchQuery = editor1.showMatchesOnScrollbar(query, false, {"scrollButtonHeight":0, affectedLine:parseInt(line)});
+			console.log(searchQuery.matchHighlights);
+		});
 		if (result.search("xml validates") > 0) {
 			$(output1).removeClass("valColor2").addClass("valColor1");
 			$(output2).text("Document validated successfully!");
@@ -133,6 +148,7 @@ $(document).ready(function() {
 	  lineWrapping: true,
 	  darkTheme: "material-palenight",
 	  theme: "material-palenight",
+	  styleSelectedText: true,
 	  extraKeys: {
         "F11": function(cm) {
           cm.setOption("fullScreen", !cm.getOption("fullScreen"));

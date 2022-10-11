@@ -101,3 +101,15 @@
     }
       .cm-matchhighlight {background-color: #7c7c7c82}
       .CodeMirror-selection-highlight-scrollbar {background-color: rgba(50, 204, 209, 0.623)}
+
+	  .styled-background{
+		background: rgb(255, 0, 0)!important;
+	  }
+	  .CodeMirror-search-match {
+		background: rgb(255, 0, 0);
+		border-top: 1px solid rgb(255, 31, 31);
+		border-bottom: 1px solid rgb(255, 31, 31);
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		opacity: .5;
+	  }
