@@ -12,8 +12,8 @@
                     <xs:attribute name="anm2" type="xs:string" use="required" />
                     <xs:attribute name="subtitles" type="xs:string" use="optional" />
                     <xs:attribute name="anim" type="xs:string" use="required" />
-                    <xs:attribute name="music" type="xs:unsignedByte" use="required" />
-                    <xs:attribute name="musicDelay" type="xs:unsignedByte" use="optional" />
+                    <xs:attribute name="music" type="xs:unsignedInt" use="required" />
+                    <xs:attribute name="musicDelay" type="xs:unsignedInt" use="optional" />
                     <xs:attribute name="width" type="xs:unsignedShort" use="required" />
                     <xs:attribute name="height" type="xs:unsignedShort" use="required" />
                     <xs:attribute name="letterbox" type="xs:boolean" use="optional" />
@@ -28,7 +28,7 @@
                 </xs:element>
               </xs:choice>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="id" type="xs:unsignedInt" use="required" />
             <xs:attribute name="name" type="xs:string" use="required" />
             <xs:attribute name="fadeout" type="xs:boolean" use="optional" />
             <xs:attribute name="fadecolor" type="xs:string" use="optional" />

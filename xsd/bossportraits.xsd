@@ -8,17 +8,17 @@
             <xs:sequence minOccurs="0">
               <xs:element name="alt">
                 <xs:complexType>
-                  <xs:attribute name="stage" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="stage" type="xs:unsignedInt" use="required" />
                   <xs:attribute name="portrait" type="xs:string" use="required" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="id" type="xs:unsignedInt" use="required" />
             <xs:attribute name="name" type="xs:string" use="required" />
             <xs:attribute name="nameimage" type="xs:string" use="required" />
             <xs:attribute name="portrait" type="xs:string" use="required" />
-            <xs:attribute name="pivotX" type="xs:unsignedByte" use="required" />
-            <xs:attribute name="pivotY" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="pivotX" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="pivotY" type="xs:unsignedInt" use="required" />
             <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
           </xs:complexType>
         </xs:element>

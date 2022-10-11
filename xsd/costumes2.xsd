@@ -1,3 +1,4 @@
+<!-- Add XML Schema (XSD) Data -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
   <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
   <xs:element name="costumes">
@@ -5,17 +6,21 @@
       <xs:sequence>
         <xs:element maxOccurs="unbounded" name="costume">
           <xs:complexType>
-            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
-            <xs:attribute name="anm2path" type="xs:string" use="required" />
-            <xs:attribute name="type" type="xs:string" use="required" />
-            <xs:attribute name="skinColor" type="xs:unsignedByte" use="optional" />
-            <xs:attribute name="isFlying" type="xs:boolean" use="optional" />
-            <xs:attribute name="overwriteColor" type="xs:boolean" use="optional" />
-            <xs:attribute name="priority" type="xs:short" use="optional" />
-            <xs:attribute name="hasSkinAlt" type="xs:boolean" use="optional" />
-            <xs:attribute name="hasOverlay" type="xs:boolean" use="optional" />
-            <xs:attribute name="forceBodyColor" type="xs:boolean" use="optional" />
-            <xs:attribute name="forceHeadColor" type="xs:boolean" use="optional" />
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                <xs:attribute name="anm2path" type="xs:string" use="required" />
+                <xs:attribute name="type" type="xs:string" use="required" />
+                <xs:attribute name="skinColor" type="xs:unsignedInt" use="optional" />
+                <xs:attribute name="isFlying" type="xs:boolean" use="optional" />
+                <xs:attribute name="overwriteColor" type="xs:boolean" use="optional" />
+                <xs:attribute name="priority" type="xs:short" use="optional" />
+                <xs:attribute name="hasSkinAlt" type="xs:boolean" use="optional" />
+                <xs:attribute name="hasOverlay" type="xs:boolean" use="optional" />
+                <xs:attribute name="forceBodyColor" type="xs:boolean" use="optional" />
+                <xs:attribute name="forceHeadColor" type="xs:boolean" use="optional" />
+              </xs:extension>
+            </xs:simpleContent>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

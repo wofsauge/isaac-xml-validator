@@ -9,25 +9,25 @@
               <xs:element maxOccurs="unbounded" name="gfx">
                 <xs:complexType>
                   <xs:attribute name="path" type="xs:string" use="required" />
-                  <xs:attribute name="roomshape" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="roomshape" type="xs:unsignedInt" use="required" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="id" type="xs:unsignedInt" use="required" />
             <xs:attribute name="path" type="xs:string" use="required" />
-            <xs:attribute name="numLayers" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="numLayers" type="xs:unsignedInt" use="required" />
             <xs:attribute name="xMin" type="xs:decimal" use="optional" />
             <xs:attribute name="xMax" type="xs:decimal" use="optional" />
             <xs:attribute name="yMin" type="xs:decimal" use="optional" />
             <xs:attribute name="yMax" type="xs:decimal" use="optional" />
             <xs:attribute name="layer" type="xs:string" use="required" />
-            <xs:attribute name="stage" type="xs:unsignedByte" use="optional" />
-            <xs:attribute name="altStages" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="stage" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="altStages" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="onlyDefaultBackdrop" type="xs:boolean" use="optional" />
-            <xs:attribute name="blendMode" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="blendMode" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="parallax" type="xs:decimal" use="optional" />
-            <xs:attribute name="backdrop" type="xs:unsignedByte" use="optional" />
-            <xs:attribute name="useBGShader" type="xs:unsignedByte" use="optional" />
+            <xs:attribute name="backdrop" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="useBGShader" type="xs:unsignedInt" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

@@ -6,14 +6,14 @@
                 <xs:element maxOccurs="unbounded" name="item">
                     <xs:complexType>
                         <xs:attribute name="id" type="xs:unsignedShort" use="required" />
-                        <xs:attribute name="quality" type="xs:unsignedByte" use="required" />
+                        <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
                         <xs:attribute name="tags" type="xs:string" use="required" />
                     </xs:complexType>
                 </xs:element>
                 <xs:element maxOccurs="unbounded" name="trinket">
                     <xs:complexType>
-                        <xs:attribute name="id" type="xs:unsignedByte" use="required" />
-                        <xs:attribute name="quality" type="xs:unsignedByte" use="required" />
+                        <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                        <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
                         <xs:attribute name="tags" type="xs:string" use="required" />
                     </xs:complexType>
                 </xs:element>
