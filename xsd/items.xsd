@@ -26,6 +26,7 @@
               <xs:attribute name="addcostumeonpickup" type="xs:boolean" use="optional" />
               <xs:attribute name="cooldown" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+              <xs:attribute name="tags" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="familiar">
@@ -40,6 +41,7 @@
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />
               <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+              <xs:attribute name="tags" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="active">
@@ -64,6 +66,7 @@
               <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />
+              <xs:attribute name="tags" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="trinket">
@@ -76,6 +79,7 @@
               <xs:attribute name="cache" type="xs:string" use="optional" />
               <xs:attribute name="addcostumeonpickup" type="xs:boolean" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
+              <xs:attribute name="tags" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="null">
@@ -85,6 +89,7 @@
               <xs:attribute name="cache" type="xs:string" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
               <xs:attribute name="cooldown" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="tags" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
         </xs:choice>
