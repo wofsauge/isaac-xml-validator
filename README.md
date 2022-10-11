@@ -11,7 +11,7 @@ Live-XML Validator tool: [https://wofsauge.github.io/Isaac-XML-Validator/webtool
 You can import our common XML Schema like this:
 ```
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
-  <xs:import schemaLocation="../datatypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
   <xs:element name="Test">
     <xs:complexType>
       <xs:attribute name="root" type="xsisaac:pngfile" />
