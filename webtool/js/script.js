@@ -137,8 +137,14 @@ $(document).ready(function() {
 		editor1.setLineClass(hlLine1, null);
 		hlLine1 = editor1.setLineClass(editor1.getCursor().line, "activeline");
 		editor1.matchHighlight("CodeMirror-matchhighlight");
-		var xsdFileName = editor1.getLine(0).trim().replace(">","").split("<")[1].split(" ")[0];
-		loadXSDFile(xsdFileName);
+		for (let index = 0; index < editor1.lineCount(); index++) {
+			var line = editor1.getLine(index);
+			if (!line.trim().startsWith("<!") && line.trim().startsWith("<")){
+				var xsdFileName = line.trim().replace(">","").split("<")[1].split(" ")[0];
+				loadXSDFile(xsdFileName);
+				break;
+			}
+		}
 	  },
 	  extraKeys: {
             "F11": function() {
