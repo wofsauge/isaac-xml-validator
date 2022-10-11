@@ -159,7 +159,15 @@ $(document).ready(function() {
       }
 	});
 
+	var dropTriggered = false;
+	CodeMirror.on(editor1, "drop", function() {
+		dropTriggered = true;
+	  });
 	CodeMirror.on(editor1, "change", function() {
+		if (dropTriggered){
+			editor1.setSelection({line:0,ch:0});
+			dropTriggered = false;
+		}
 	  for (let index = 0; index < editor1.lineCount(); index++) {
 		  var line = editor1.getLine(index);
 		  if (!line.trim().startsWith("<!") && line.trim().startsWith("<")){
@@ -168,7 +176,6 @@ $(document).ready(function() {
 			  break;
 		  }
 	  }
-	  editor1.setSelection({line:0,ch:0});
 	});
 	editor1.setValue(" ");
 });
