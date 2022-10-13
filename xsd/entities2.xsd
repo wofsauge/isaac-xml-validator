@@ -31,6 +31,11 @@
                     <xs:attribute name="rock" type="xs:unsignedInt" use="optional" />
                     <xs:attribute name="sound_bone" type="xs:unsignedInt" use="optional" />
                     <xs:attribute name="poop" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="colorblood" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="rock_small" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="small" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="huge" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="chain" type="xs:unsignedInt" use="optional" />
                   </xs:complexType>
                 </xs:element>
                 <xs:element name="preload">
@@ -50,7 +55,7 @@
             <xs:attribute name="anm2path" type="xs:string" use="required" />
             <xs:attribute name="baseHP" type="xs:decimal" use="required" />
             <xs:attribute name="boss" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="champion" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="champion" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="collisionDamage" type="xs:decimal" use="required" />
             <xs:attribute name="collisionMass" type="xs:unsignedShort" use="required" />
             <xs:attribute name="collisionRadius" type="xs:unsignedInt" use="required" />
@@ -70,7 +75,8 @@
             <xs:attribute name="hasFloorAlts" type="xs:boolean" use="optional" />
             <xs:attribute name="reroll" type="xs:boolean" use="optional" />
             <xs:attribute name="shutdoors" type="xs:boolean" use="optional" />
-            <xs:attribute name="shieldStrength" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="shieldStrength" type="xs:decimal" use="optional" />
+            <xs:attribute name="collisionRadiusXMulti" type="xs:decimal" use="optional" />
             <xs:attribute name="collisionRadiusYMulti" type="xs:decimal" use="optional" />
             <xs:attribute name="gibAmount" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="gibFlags" type="xs:string" use="optional" />
