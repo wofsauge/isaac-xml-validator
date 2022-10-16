@@ -32,11 +32,23 @@ $(document).ready(function() {
 	// Workaround for HTTPS imports not working with this xsd validator library
 	// preload referenced master xsd file for later use
 	var refXML;
+	var refAnnotations= {};
+	var lastAnnotations;
 	$.ajax({
 		url: "https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd",
 		dataType: "xml",
 		success: function(data){ 
 			refXML = data;
+			//create annotation map to improve user feedback
+			for (let pattern of refXML.getElementsByTagName("xs:pattern")) {
+				var annotation = pattern.parentNode.parentNode.getElementsByTagName("xs:documentation");
+				if(annotation.length > 0){
+					if(pattern.hasAttribute("value")){
+						refAnnotations[pattern.getAttribute("value")] = annotation[0].innerHTML;
+					}
+				}
+			}
+			console.log(refAnnotations);
 		},
 		error: function(){
 			alert("There was an error.");
@@ -74,9 +86,8 @@ $(document).ready(function() {
 				}
 
 				 schemaData = (new XMLSerializer()).serializeToString(data);
-				 schemaData = schemaData.replace("xsisaac:",""); // replace schema identifier, which no longer is needed due to manual import
+				 schemaData = schemaData.replaceAll("xsisaac:",""); // replace schema identifier, which no longer is needed due to manual import
 				 schemaFileName = fileName;
-
 				$(".valoutput").removeClass("valColor1").removeClass("valColor2");
 				$(".valtext").text("File loaded successfully: "+fileName); 
 			},
@@ -104,6 +115,7 @@ $(document).ready(function() {
 			schema: schemaData,
 			arguments: ["--noout", "--schema", schemaFileName, schemaFileName.replace(".xsd",".xml")]
 		};
+		clearAnnotations();
 		var result = validateXML(Module);
 		xmlInfo(result, ".valoutput", ".valtext", ".console");
 	});
@@ -126,9 +138,14 @@ $(document).ready(function() {
 
 			var query = attr || element;
 			if (typeof query === "undefined" || typeof line === "undefined") return;
-			var searchQuery = editor1.showMatchesOnScrollbar(query, false, {"scrollButtonHeight":0, affectedLine:parseInt(line)});
-			console.log(searchQuery.matchHighlights);
+			lastAnnotations = editor1.showMatchesOnScrollbar(query, false, {"scrollButtonHeight":0, affectedLine:parseInt(line)});
 		});
+
+		//apply annotations
+		for (const key in refAnnotations) {
+			result = result.replaceAll(key,key+" ("+refAnnotations[key]+")");
+		}
+
 		if (result.search("xml validates") > 0) {
 			$(output1).removeClass("valColor2").addClass("valColor1");
 			$(output2).text("Document validated successfully!");
@@ -178,6 +195,11 @@ $(document).ready(function() {
 	  }
 	});
 	editor1.setValue(" ");
+	function clearAnnotations() {
+		if(!lastAnnotations) return;
+		editor1.doc.getAllMarks().forEach(marker => marker.clear());
+		lastAnnotations.clear();
+	}
 });
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
