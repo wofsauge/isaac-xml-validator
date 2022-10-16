@@ -14,7 +14,7 @@ You can import our common XML Schema like this:
   <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
   <xs:element name="Test">
     <xs:complexType>
-      <xs:attribute name="root" type="xsisaac:pngfile" />
+      <xs:attribute name="root" type="xsisaac:pngFile" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

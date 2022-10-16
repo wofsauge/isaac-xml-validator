@@ -9,8 +9,8 @@
               <xs:choice maxOccurs="unbounded">
                 <xs:element name="anm2part">
                   <xs:complexType>
-                    <xs:attribute name="anm2" type="xs:string" use="required" />
-                    <xs:attribute name="subtitles" type="xs:string" use="optional" />
+                    <xs:attribute name="anm2" type="xsisaac:anm2File" use="required" />
+                    <xs:attribute name="subtitles" type="xsisaac:srtFile" use="optional" />
                     <xs:attribute name="anim" type="xs:string" use="required" />
                     <xs:attribute name="music" type="xs:unsignedInt" use="required" />
                     <xs:attribute name="musicDelay" type="xs:unsignedInt" use="optional" />
@@ -21,9 +21,9 @@
                 </xs:element>
                 <xs:element name="videopart">
                   <xs:complexType>
-                    <xs:attribute name="file" type="xs:string" use="required" />
+                    <xs:attribute name="file" type="xsisaac:ogvFile" use="required" />
                     <xs:attribute name="keepMusic" type="xs:boolean" use="optional" />
-                    <xs:attribute name="subtitles" type="xs:string" use="optional" />
+                    <xs:attribute name="subtitles" type="xsisaac:srtFile" use="optional" />
                   </xs:complexType>
                 </xs:element>
               </xs:choice>
@@ -35,7 +35,7 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="root" type="xs:string" use="required" />
+      <xs:attribute name="root" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

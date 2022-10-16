@@ -7,12 +7,12 @@
           <xs:complexType>
             <xs:attribute name="id" type="xs:unsignedShort" use="required" />
             <xs:attribute name="name" type="xs:string" use="required" />
-            <xs:attribute name="skin" type="xs:string" use="required" />
+            <xs:attribute name="skin" type="xsisaac:pngFile" use="required" />
             <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="root" type="xs:string" use="required" />
+      <xs:attribute name="root" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

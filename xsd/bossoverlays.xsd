@@ -6,13 +6,13 @@
         <xs:element maxOccurs="unbounded" name="entry">
           <xs:complexType>
             <xs:attribute name="id" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="anm2" type="xs:string" use="required" />
+            <xs:attribute name="anm2" type="xsisaac:anm2File" use="required" />
             <xs:attribute name="anim" type="xs:string" use="required" />
             <xs:attribute name="persist" type="xs:boolean" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="anm2root" type="xs:string" use="required" />
+      <xs:attribute name="anm2root" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

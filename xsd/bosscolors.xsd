@@ -10,7 +10,7 @@
                   <xs:attribute name="suffix" type="xs:string" use="optional" />
                   <xs:attribute name="scale" type="xs:decimal" use="optional" />
                   <xs:attribute name="hp" type="xs:decimal" use="optional" />
-                  <xs:attribute name="anm2path" type="xs:string" use="optional" />
+                  <xs:attribute name="anm2path" type="xsisaac:anm2File" use="optional" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
@@ -20,8 +20,8 @@
         </xs:element>
       </xs:sequence>
       <xs:attribute name="version" type="xs:unsignedInt" use="required" />
-      <xs:attribute name="anm2root" type="xs:string" use="required" />
-      <xs:attribute name="portraitroot" type="xs:string" use="required" />
+      <xs:attribute name="anm2root" type="xsisaac:gfxPath" use="required" />
+      <xs:attribute name="portraitroot" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

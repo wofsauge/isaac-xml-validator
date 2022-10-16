@@ -8,15 +8,16 @@
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="rule">
                 <xs:complexType>
-                  <xs:attribute name="body" type="xs:string" use="optional" />
+                  <xs:attribute name="body" type="xsisaac:anm2File" use="optional" />
                   <xs:attribute name="includeFlags" type="xs:string" use="optional" />
-                  <xs:attribute name="front2" type="xs:string" use="optional" />
+                  <xs:attribute name="front2" type="xsisaac:anm2File" use="optional" />
+                  <xs:attribute name="suffix" type="xs:string" use="optional" />
                   <xs:attribute name="suffix2" type="xs:string" use="optional" />
-                  <xs:attribute name="body2" type="xs:string" use="optional" />
-                  <xs:attribute name="back" type="xs:string" use="optional" />
-                  <xs:attribute name="overlay" type="xs:string" use="optional" />
+                  <xs:attribute name="body2" type="xsisaac:anm2File" use="optional" />
+                  <xs:attribute name="back" type="xsisaac:anm2File" use="optional" />
+                  <xs:attribute name="overlay" type="xsisaac:anm2File" use="optional" />
                   <xs:attribute name="excludeFlags" type="xs:string" use="optional" />
-                  <xs:attribute name="front" type="xs:string" use="optional" />
+                  <xs:attribute name="front" type="xsisaac:anm2File" use="optional" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
@@ -24,7 +25,7 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="anm2root" type="xs:string" use="required" />
+      <xs:attribute name="anm2root" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

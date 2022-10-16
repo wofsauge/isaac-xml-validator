@@ -7,7 +7,7 @@
                     <xs:complexType>
                         <xs:attribute name="id" type="xs:unsignedShort" use="required" />
                         <xs:attribute name="text" type="xs:string" use="required" />
-                        <xs:attribute name="gfx" type="xsisaac:pngfile" use="required" />
+                        <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
                         <xs:attribute name="steam_name" type="xs:string" use="optional" />
                         <xs:attribute name="steam_description" type="xs:string" use="optional" />
                         <xs:attribute name="steam_icon" type="xs:string" use="optional" />

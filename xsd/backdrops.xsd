@@ -6,30 +6,30 @@
         <xs:element maxOccurs="unbounded" name="backdrop">
           <xs:complexType>
             <xs:attribute name="id" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="gfx" type="xs:string" use="optional" />
+            <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="walls" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="wallvariants" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="floors" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="floorvariants" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="lfloorgfx" type="xs:string" use="optional" />
-            <xs:attribute name="nfloorgfx" type="xs:string" use="optional" />
-            <xs:attribute name="props" type="xs:string" use="optional" />
-            <xs:attribute name="rocks" type="xs:string" use="optional" />
-            <xs:attribute name="pit" type="xs:string" use="optional" />
-            <xs:attribute name="bridge" type="xs:string" use="optional" />
-            <xs:attribute name="door" type="xs:string" use="optional" />
-            <xs:attribute name="holeinwall" type="xs:string" use="optional" />
-            <xs:attribute name="watergfx" type="xs:string" use="optional" />
+            <xs:attribute name="lfloorgfx" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="nfloorgfx" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="props" type="xsisaac:anm2File" use="optional" />
+            <xs:attribute name="rocks" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="pit" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="bridge" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="door" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="holeinwall" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="watergfx" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="reversewatergfx" type="xs:boolean" use="optional" />
             <xs:attribute name="waterpitsmode" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="waterpit" type="xs:string" use="optional" />
-            <xs:attribute name="spikes" type="xs:string" use="optional" />
+            <xs:attribute name="waterpit" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="spikes" type="xsisaac:pngFile" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="gfxroot" type="xs:string" use="required" />
-      <xs:attribute name="gridgfxroot" type="xs:string" use="required" />
-      <xs:attribute name="effectsgfxroot" type="xs:string" use="required" />
+      <xs:attribute name="gfxroot" type="xsisaac:gfxPath" use="required" />
+      <xs:attribute name="gridgfxroot" type="xsisaac:gfxPath" use="required" />
+      <xs:attribute name="effectsgfxroot" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -8,7 +8,7 @@
             <xs:sequence minOccurs="0">
               <xs:element maxOccurs="unbounded" name="hair">
                 <xs:complexType>
-                  <xs:attribute name="gfx" type="xsisaac:pngfile" use="required" />
+                  <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
@@ -17,8 +17,8 @@
             <xs:attribute name="skin" type="xs:string" use="required" />
             <xs:attribute name="hp" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="nameimage" type="xsisaac:pngfile" use="required" />
-            <xs:attribute name="portrait" type="xsisaac:pngfile" use="required" />
+            <xs:attribute name="nameimage" type="xsisaac:pngFile" use="required" />
+            <xs:attribute name="portrait" type="xsisaac:pngFile" use="required" />
             <xs:attribute name="skinColor" type="xs:byte" use="required" />
             <xs:attribute name="birthright" type="xs:string" use="required" />
             <xs:attribute name="costume" type="xs:unsignedInt" use="optional" />
@@ -37,8 +37,7 @@
             <xs:attribute name="pocketActive" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="bSkinParent" type="xs:string" use="optional" />
             <xs:attribute name="hidden" type="xs:boolean" use="optional" />
-            <xs:attribute name="pocketActive" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="extraportrait" type="xsisaac:pngfile" use="optional" />
+            <xs:attribute name="extraportrait" type="xsisaac:anm2File" use="optional" />
             <xs:attribute name="bigportrait" type="xsisaac:deprecated" use="optional" />
           </xs:complexType>
         </xs:element>
