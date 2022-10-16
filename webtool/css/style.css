@@ -113,3 +113,7 @@
 		box-sizing: border-box;
 		opacity: .5;
 	  }
+
+	  span.CodeMirror-selectedtext{
+		background-color: rgba(50, 204, 209, 0.75);
+	  }
