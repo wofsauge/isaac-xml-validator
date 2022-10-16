@@ -15,4 +15,12 @@
             <xs:pattern value="(gfx)(/\w+)+(/)" />
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="deprecated">
+        <xs:annotation>
+            <xs:documentation>Attribute is no longer used with Repentance</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(.)*" />
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

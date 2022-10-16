@@ -27,29 +27,26 @@
             <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="armor" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="trinket" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="costumeSuffix" type="xs:string" use="optional" />
             <xs:attribute name="black" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="card" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="pill" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="canShoot" type="xs:boolean" use="optional" />
+            <xs:attribute name="broken" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="pocketActive" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="bSkinParent" type="xs:string" use="optional" />
+            <xs:attribute name="hidden" type="xs:boolean" use="optional" />
             <xs:attribute name="pocketActive" type="xs:unsignedShort" use="optional" />
             <xs:attribute name="extraportrait" type="xsisaac:pngfile" use="optional" />
-            <xs:attribute name="bigportrait" type="xsisaac:pngfile" use="prohibited">
-              <xs:annotation>
-              <xs:documentation>Depricated with Repentance</xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
+            <xs:attribute name="bigportrait" type="xsisaac:deprecated" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="root" type="xsisaac:gfxPath" use="required" />
       <xs:attribute name="portraitroot" type="xsisaac:gfxPath" use="required" />
       <xs:attribute name="nameimageroot" type="xsisaac:gfxPath" use="required" />
-      <xs:attribute name="bigportraitroot" type="xsisaac:gfxPath" use="prohibited">
-        <xs:annotation>
-        <xs:documentation>Depricated with Repentance</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
+      <xs:attribute name="bigportraitroot" type="xsisaac:deprecated" use="optional" />
     </xs:complexType>
   </xs:element>
 </xs:schema>
