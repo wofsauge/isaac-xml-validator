@@ -8,17 +8,17 @@
             <xs:sequence minOccurs="0">
               <xs:element maxOccurs="unbounded" name="hair">
                 <xs:complexType>
-                  <xs:attribute name="gfx" type="xs:string" use="required" />
+                  <xs:attribute name="gfx" type="xsisaac:pngfile" use="required" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
-            <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="name" type="xs:string" use="required" />
             <xs:attribute name="skin" type="xs:string" use="required" />
             <xs:attribute name="hp" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="nameimage" type="xs:string" use="required" />
-            <xs:attribute name="portrait" type="xs:string" use="required" />
+            <xs:attribute name="nameimage" type="xsisaac:pngfile" use="required" />
+            <xs:attribute name="portrait" type="xsisaac:pngfile" use="required" />
             <xs:attribute name="skinColor" type="xs:byte" use="required" />
             <xs:attribute name="birthright" type="xs:string" use="required" />
             <xs:attribute name="costume" type="xs:unsignedInt" use="optional" />
@@ -33,13 +33,23 @@
             <xs:attribute name="pill" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="canShoot" type="xs:boolean" use="optional" />
             <xs:attribute name="pocketActive" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="extraportrait" type="xs:string" use="optional" />
+            <xs:attribute name="extraportrait" type="xsisaac:pngfile" use="optional" />
+            <xs:attribute name="bigportrait" type="xsisaac:pngfile" use="prohibited">
+              <xs:annotation>
+              <xs:documentation>Depricated with Repentance</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="root" type="xs:string" use="required" />
-      <xs:attribute name="portraitroot" type="xs:string" use="required" />
-      <xs:attribute name="nameimageroot" type="xs:string" use="required" />
+      <xs:attribute name="root" type="xsisaac:gfxPath" use="required" />
+      <xs:attribute name="portraitroot" type="xsisaac:gfxPath" use="required" />
+      <xs:attribute name="nameimageroot" type="xsisaac:gfxPath" use="required" />
+      <xs:attribute name="bigportraitroot" type="xsisaac:gfxPath" use="prohibited">
+        <xs:annotation>
+        <xs:documentation>Depricated with Repentance</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     </xs:complexType>
   </xs:element>
 </xs:schema>

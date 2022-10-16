@@ -1,7 +1,18 @@
 <xs:schema elementFormDefault="qualified" xml:lang="EN" targetNamespace="https://wofsauge.github.io/Isaac-XML-Validator" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:simpleType name="pngfile">
+        <xs:annotation>
+            <xs:documentation>Filename or path required that needs to end with ".png"</xs:documentation>
+        </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:pattern value="(.)*.png" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="gfxPath">
+        <xs:annotation>
+            <xs:documentation>Path needs to conform to format: "gfx/xxx/yyy/zzz/"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(gfx)(/\w+)+(/)" />
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
