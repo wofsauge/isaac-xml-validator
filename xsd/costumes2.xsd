@@ -8,7 +8,7 @@
           <xs:complexType>
             <xs:simpleContent>
               <xs:extension base="xs:string">
-                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                <xs:attribute name="id" type="xs:unsignedShort"optional" />
                 <xs:attribute name="anm2path" type="xsisaac:anm2File" use="required" />
                 <xs:attribute name="type" type="xs:string" use="required" />
                 <xs:attribute name="skinColor" type="xs:unsignedInt" use="optional" />
