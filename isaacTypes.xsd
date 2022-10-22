@@ -12,7 +12,15 @@
             <xs:documentation>Filename or path required that needs to end with ".anm2"</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="(.)*.anm2" />
+            <xs:pattern value="(((.)*.anm2)|^$)" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="anm2OrPngFile">
+        <xs:annotation>
+            <xs:documentation>Filename or path required that needs to end with ".anm2" or ".png"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(((.)*(.anm2|.png))|^$)" />
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="ogvFile">
@@ -36,7 +44,7 @@
             <xs:documentation>Path needs to conform to format: "gfx/xxx/yyy/zzz/"</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="(gfx)(/\w+)*(/)" />
+            <xs:pattern value="(gfx)(/[\w\d\s]+)*(/)" />
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="deprecated">

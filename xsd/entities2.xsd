@@ -80,6 +80,8 @@
             <xs:attribute name="collisionRadiusYMulti" type="xs:decimal" use="optional" />
             <xs:attribute name="gibAmount" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="gibFlags" type="xs:string" use="optional" />
+            <xs:attribute name="bestiaryAnim" type="xs:string" use="optional" />
+            <xs:attribute name="bestiaryOverlay" type="xs:string" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

@@ -6,14 +6,14 @@
         <xs:element maxOccurs="unbounded" name="backdrop">
           <xs:complexType>
             <xs:attribute name="id" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="gfx" type="xsisaac:anm2OrPngFile" use="optional" />
             <xs:attribute name="walls" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="wallvariants" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="floors" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="floorvariants" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="lfloorgfx" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="nfloorgfx" type="xsisaac:pngFile" use="optional" />
-            <xs:attribute name="props" type="xsisaac:anm2File" use="optional" />
+            <xs:attribute name="props" type="xsisaac:anm2OrPngFile" use="optional" />
             <xs:attribute name="rocks" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="pit" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="bridge" type="xsisaac:pngFile" use="optional" />
