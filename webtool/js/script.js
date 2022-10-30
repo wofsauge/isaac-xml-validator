@@ -73,6 +73,9 @@ $(document).ready(function() {
 			success: function(data){ 
 				// Workaround for HTTPS imports not working with this xsd validator library
 				// manually import the file content
+				if(data.firstChild.hasAttribute("xmlns:xsisaac")){
+					data.firstChild.removeAttribute("xmlns:xsisaac");
+				}
 				for (let c of data.firstChild.childNodes) {
 					if(c.nodeName == "xs:import"){
 						for(let importNode of refXML.firstChild.childNodes){
@@ -89,7 +92,7 @@ $(document).ready(function() {
 				 schemaData = schemaData.replaceAll("xsisaac:",""); // replace schema identifier, which no longer is needed due to manual import
 				 schemaFileName = fileName;
 				$(".valoutput").removeClass("valColor1").removeClass("valColor2");
-				$(".valtext").text("File loaded successfully: "+fileName); 
+				$(".valtext").text("File successfully detected: "+fileName.replace(".xsd",".xml")); 
 			},
 			error: function(){
 				$(".valoutput").removeClass("valColor1").addClass("valColor2");
@@ -133,19 +136,18 @@ $(document).ready(function() {
 			var elementIdent = item.split(": Element '");
 			var attrIdent = item.split(", attribute '");
 			if (lineIdent.length > 1) line = lineIdent[1];
-			if (elementIdent.length > 1) element = elementIdent[1].split("'")[0];
-			if (attrIdent.length > 1) attr = attrIdent[1].split("'")[0];
+			if (elementIdent.length > 1) element = "<" + elementIdent[1].split("'")[0];
+			if (attrIdent.length > 1) attr = attrIdent[1].split("'")[0] + "=";
 
 			var query = attr || element;
 			if (typeof query === "undefined" || typeof line === "undefined") return;
-			lastAnnotations = editor1.showMatchesOnScrollbar(query, false, {"scrollButtonHeight":0, affectedLine:parseInt(line)});
+			lastAnnotations = editor1.showMatchesOnScrollbar(query, false, {"scrollButtonHeight":0, affectedLine:parseInt(line), maxMatches:1});
 		});
-
 		//apply annotations
 		for (const key in refAnnotations) {
 			result = result.replaceAll(key,key+" ("+refAnnotations[key]+")");
 		}
-
+		
 		if (result.search("xml validates") > 0) {
 			$(output1).removeClass("valColor2").addClass("valColor1");
 			$(output2).text("Document validated successfully!");

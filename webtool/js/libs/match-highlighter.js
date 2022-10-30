@@ -349,17 +349,16 @@
 		if (match.to.line >= this.gap.from) this.matches.splice(i--, 1);
 	  }
 	  var affectedLine = this.options && this.options.affectedLine || 0; //added
-	  var cursor = this.cm.getSearchCursor(this.query, CodeMirror.Pos(this.gap.from, affectedLine), {caseFold: this.caseFold, multiline: this.options.multiline});
+	  var cursor = this.cm.getSearchCursor(this.query, CodeMirror.Pos(affectedLine-3, affectedLine+3), {caseFold: this.caseFold, multiline: this.options.multiline});
 	  var maxMatches = this.options && this.options.maxMatches || MAX_MATCHES;
 	  while (cursor.findNext()) {
 		var match = {from: cursor.from(), to: cursor.to()};
 		if (match.from.line >= this.gap.to) break;
-		if (typeof affectedLines !== "undefined" && $.inArray(match.from.line+1, affectedLines) == -1) break; //added
-		
+		if (typeof affectedLine !== "undefined" && match.from.line != affectedLine-1) continue; //added
 		var highlight = this.cm.markText(cursor.from(), cursor.to(), {className: "cm-error"});
 		this.matchHighlights.splice(i++, 0, highlight);
 		this.matches.splice(i++, 0, match);
-		if (this.matches.length > maxMatches) break;
+		if (this.matches.length >= maxMatches) break;
 	  }
 	  this.gap = null;
 	};
