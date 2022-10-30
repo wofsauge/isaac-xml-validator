@@ -9,7 +9,7 @@
               <xs:attribute name="cache" type="xs:string" use="optional" />
               <xs:attribute name="description" type="xs:string" use="required" />
               <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
-              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="maxhearts" type="xs:unsignedInt" use="optional" />
@@ -27,7 +27,7 @@
               <xs:attribute name="cooldown" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
               <xs:attribute name="tags" type="xs:string" use="optional" />
-              <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
             </xs:complexType>
           </xs:element>
@@ -36,7 +36,7 @@
               <xs:attribute name="cache" type="xs:string" use="optional" />
               <xs:attribute name="description" type="xs:string" use="required" />
               <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
-              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="maxhearts" type="xs:unsignedInt" use="optional" />
@@ -54,7 +54,7 @@
               <xs:attribute name="cooldown" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
               <xs:attribute name="tags" type="xs:string" use="optional" />
-              <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
             </xs:complexType>
           </xs:element>
@@ -63,7 +63,7 @@
               <xs:attribute name="cache" type="xs:string" use="optional" />
               <xs:attribute name="description" type="xs:string" use="required" />
               <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
-              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="maxhearts" type="xs:unsignedInt" use="optional" />
@@ -81,7 +81,7 @@
               <xs:attribute name="cooldown" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
               <xs:attribute name="tags" type="xs:string" use="optional" />
-              <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="passivecache" type="xs:boolean" use="optional" />
               <xs:attribute name="chargetype" type="xs:string" use="optional" />
               <xs:attribute name="initcharge" type="xs:unsignedShort" use="optional" />
@@ -94,7 +94,7 @@
               <xs:attribute name="cache" type="xs:string" use="optional" />
               <xs:attribute name="description" type="xs:string" use="required" />
               <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
-              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="maxhearts" type="xs:unsignedInt" use="optional" />
@@ -112,16 +112,16 @@
               <xs:attribute name="cooldown" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
               <xs:attribute name="tags" type="xs:string" use="optional" />
-              <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="null">
             <xs:complexType>
               <xs:attribute name="cache" type="xs:string" use="optional" />
-              <xs:attribute name="description" type="xs:string" use="required" />
-              <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
-              <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+              <xs:attribute name="description" type="xs:string" use="optional" />
+              <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
+              <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="maxhearts" type="xs:unsignedInt" use="optional" />
@@ -139,7 +139,7 @@
               <xs:attribute name="cooldown" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="persistent" type="xs:boolean" use="optional" />
               <xs:attribute name="tags" type="xs:string" use="optional" />
-              <xs:attribute name="quality" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
             </xs:complexType>
           </xs:element>
