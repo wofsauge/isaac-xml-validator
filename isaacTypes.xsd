@@ -52,7 +52,7 @@
             <xs:documentation>Attribute is no longer used with Repentance</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="(.)*" />
+            <xs:pattern value="((.))*" />
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
