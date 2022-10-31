@@ -12,7 +12,7 @@
             <xs:documentation>Filename or path required that needs to end with ".anm2"</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="(((.)*.anm2)|^$)" />
+            <xs:pattern value="(((.)*.anm2)|)" />
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="anm2OrPngFile">
@@ -20,7 +20,7 @@
             <xs:documentation>Filename or path required that needs to end with ".anm2" or ".png"</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="(((.)*(.anm2|.png))|^$)" />
+            <xs:pattern value="(((.)*(.anm2|.png))|)" />
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="ogvFile">
