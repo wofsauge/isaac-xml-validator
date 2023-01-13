@@ -67,9 +67,18 @@ def printOK(string):
 def printWarn(string):
     print(bcolors.WARNING + str(string) + bcolors.ENDC)
 
+def parseAndCheckSyntax(filename):
+    try:
+        return lxml.etree.parse(filename)
+    except Exception as err:
+        printErr(err)
+        errCount += 1
+        printErr("SYNTAX ERROR DETECTED!!")
+    return None
+
 def main():
     global rootFolder, expectedErrorCount, recursive
-    scriptPath =os.path.realpath(__file__).replace("main.py","")
+    scriptPath = os.getcwd()
 
     totalErrorCount = 0
     files = glob.glob(rootFolder + "/**.xml", recursive=recursive)
@@ -79,53 +88,55 @@ def main():
         filteredFilename = filteredFilename.split("/")[
             len(filteredFilename.split("/")) - 1
         ]
-        if filteredFilename not in fileAllowList:
-            printWarn("Ignoring file: " + filename)
-            continue
-
-        print("Now analysing: " + filename)
-
+        isValid = False
         errCount = 0
-        try:
-            xmlschema_root_doc = lxml.etree.parse(scriptPath+"isaacTypes.xsd")
-            xmlschema_doc = lxml.etree.parse(
-                scriptPath+"xsd/" + filteredFilename.replace(".xml", ".xsd")
-            )
 
-            # Replace import node with content of the imported file, because lxml doesnt like https links
-            node = xmlschema_doc.getroot().find(
-                "{http://www.w3.org/2001/XMLSchema}import"
-            )
-            if node is not None:
-                for child in list(xmlschema_root_doc.getroot()):
-                    xmlschema_doc.getroot().insert(0, child)
-                xmlschema_doc.getroot().remove(node)
-            clearIsaacRefsRecursive(xmlschema_doc.getroot())
-            xmlschema = lxml.etree.XMLSchema(xmlschema_doc)
+        if filteredFilename not in fileAllowList:
+            
+            print("Analyzing file as normal xml: " + filename)
+            isValid = parseAndCheckSyntax(filename) is not None
+        else:
+            
+            print("Analyzing Isaac xml file: " + filename)
 
-            xml_doc = lxml.etree.parse(filename)
-            isValid = xmlschema.validate(xml_doc)
-            if not isValid:
-                for error in xmlschema.error_log:
-                    printErr(
-                        error.filename
-                        + ":line "
-                        + str(error.line)
-                        + ":col "
-                        + str(error.column)
-                        + ": "
-                        + error.message
-                    )
-                errCount += len(xmlschema.error_log)
-            else:
-                printOK("File is valid")
-        except Exception as err:
-            printErr(err)
-            errCount += 1
-            printErr("SYNTAX ERROR DETECTED!!")
+            try:
+                xmlschema_root_doc = lxml.etree.parse(scriptPath + "/isaacTypes.xsd")
+                xmlschema_doc = lxml.etree.parse(
+                    scriptPath + "/xsd/" + filteredFilename.replace(".xml", ".xsd")
+                )
 
-        if errCount > 0:
-            print("---- End errors for file: " + filename)
+                # Replace import node with content of the imported file, because lxml doesnt like https links
+                node = xmlschema_doc.getroot().find(
+                    "{http://www.w3.org/2001/XMLSchema}import"
+                )
+                if node is not None:
+                    for child in list(xmlschema_root_doc.getroot()):
+                        xmlschema_doc.getroot().insert(0, child)
+                    xmlschema_doc.getroot().remove(node)
+                clearIsaacRefsRecursive(xmlschema_doc.getroot())
+                xmlschema = lxml.etree.XMLSchema(xmlschema_doc)
+
+                xml_doc = parseAndCheckSyntax(filename)
+                if xml_doc is not None:
+                    isValid = xmlschema.validate(xml_doc)
+            except Exception as err:
+                printErr(err)
+        if not isValid:
+            for error in xmlschema.error_log:
+                printErr(
+                    error.filename
+                    + ":line "
+                    + str(error.line)
+                    + ":col "
+                    + str(error.column)
+                    + ": "
+                    + error.message
+                )
+            errCount += len(xmlschema.error_log)
+            if errCount > 0:
+                print("---- End errors for file: " + filename)
+        else:
+            printOK("File is valid")
 
         totalErrorCount += errCount
 
