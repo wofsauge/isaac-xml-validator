@@ -75,7 +75,7 @@ def printWarn(string):
 
 def main():
     global rootFolder, expectedErrorCount, recursive
-    scriptPath = os.path.realpath(__file__).replace("main.py", "")
+    scriptPath = os.path.realpath(__file__).replace("isaac-xml-validator.py", "")
 
     totalErrorCount = 0
     files = glob.glob(rootFolder + "/**.xml", recursive=recursive)
