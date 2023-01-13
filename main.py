@@ -87,9 +87,9 @@ def main():
 
         errCount = 0
         try:
-            xmlschema_root_doc = lxml.etree.parse(scriptPath+"Isaac-XML-Validator/isaacTypes.xsd")
+            xmlschema_root_doc = lxml.etree.parse(scriptPath+"isaacTypes.xsd")
             xmlschema_doc = lxml.etree.parse(
-                scriptPath+"Isaac-XML-Validator/xsd/" + filteredFilename.replace(".xml", ".xsd")
+                scriptPath+"xsd/" + filteredFilename.replace(".xml", ".xsd")
             )
 
             # Replace import node with content of the imported file, because lxml doesnt like https links
@@ -160,7 +160,7 @@ def readGithubEnvVars():
     if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
         expectedErrorCount = os.environ["INPUT_EXPECTEDERRORCOUNT"]
     else:
-        expectedErrorCount = 65
+        expectedErrorCount = 5
     print("\tExpected Error Count: ", expectedErrorCount)
 
 if __name__ == "__main__":
