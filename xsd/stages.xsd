@@ -7,9 +7,9 @@
           <xs:complexType>
             <xs:attribute name="id" type="xs:unsignedInt" use="required" />
             <xs:attribute name="name" type="xs:string" use="required" />
-            <xs:attribute name="path" type="xs:string" use="required" />
-            <xs:attribute name="playerspot" type="xs:string" use="optional" />
-            <xs:attribute name="bossspot" type="xs:string" use="optional" />
+            <xs:attribute name="path" type="xsisaac:xmlFile" use="required" />
+            <xs:attribute name="playerspot" type="xsisaac:pngFile" use="optional" />
+            <xs:attribute name="bossspot" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="music" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="backdrop" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="suffix" type="xs:string" use="optional" />

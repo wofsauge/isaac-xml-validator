@@ -29,6 +29,7 @@
               <xs:attribute name="tags" type="xs:string" use="optional" />
               <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
+              <xs:attribute name="craftquality" type="xs:short" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="familiar">
@@ -56,6 +57,7 @@
               <xs:attribute name="tags" type="xs:string" use="optional" />
               <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
+              <xs:attribute name="craftquality" type="xs:short" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="active">
@@ -87,6 +89,7 @@
               <xs:attribute name="initcharge" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="discharged" type="xs:boolean" use="optional" />
+              <xs:attribute name="craftquality" type="xs:short" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="trinket">
@@ -114,6 +117,7 @@
               <xs:attribute name="tags" type="xs:string" use="optional" />
               <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
+              <xs:attribute name="craftquality" type="xs:short" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="null">
@@ -141,6 +145,7 @@
               <xs:attribute name="tags" type="xs:string" use="optional" />
               <xs:attribute name="quality" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="shopprice" type="xs:unsignedInt" use="optional" />
+              <xs:attribute name="craftquality" type="xs:short" use="optional" />
             </xs:complexType>
           </xs:element>
         </xs:choice>

@@ -39,12 +39,36 @@
             <xs:pattern value="(.)*.srt" />
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="xmlFile">
+        <xs:annotation>
+            <xs:documentation>Filename or path required that needs to end with ".xml"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(((.)*.xml)|)" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="soundFile">
+        <xs:annotation>
+            <xs:documentation>Filename or path required that needs to end with ".wav" or ".ogg"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(((.)*(.wav|.ogg))|)" />
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="gfxPath">
         <xs:annotation>
             <xs:documentation>Path needs to conform to format: "gfx/xxx/yyy/zzz/"</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:pattern value="(gfx)(/[\w\d\s]+)*(/)" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="recipe">
+        <xs:annotation>
+            <xs:documentation>String needs to be 8 characters long and only contain the symbols: .oOQ$v^V_/|%hrsbBge1234({\[>?~</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([.oOQ$v^V_/|%hrsbBge1234({\[>?~]){8})" />
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="deprecated">

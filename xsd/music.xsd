@@ -8,17 +8,17 @@
                         <xs:sequence minOccurs="0">
                             <xs:element maxOccurs="unbounded" name="layer">
                                 <xs:complexType>
-                                    <xs:attribute name="path" type="xs:string" use="required" />
+                                    <xs:attribute name="path" type="xsisaac:soundFile" use="required" />
                                     <xs:attribute name="mul" type="xs:decimal" use="required" />
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                         <xs:attribute name="id" type="xs:unsignedInt" use="required" />
                         <xs:attribute name="name" type="xs:string" use="required" />
-                        <xs:attribute name="intro" type="xs:string" use="optional" />
-                        <xs:attribute name="path" type="xs:string" use="required" />
-                        <xs:attribute name="layerintro" type="xs:string" use="optional" />
-                        <xs:attribute name="layer" type="xs:string" use="optional" />
+                        <xs:attribute name="intro" type="xsisaac:soundFile" use="optional" />
+                        <xs:attribute name="path" type="xsisaac:soundFile" use="required" />
+                        <xs:attribute name="layerintro" type="xsisaac:soundFile" use="optional" />
+                        <xs:attribute name="layer" type="xsisaac:soundFile" use="optional" />
                         <xs:attribute name="loop" type="xs:boolean" use="required" />
                         <xs:attribute name="layermode" type="xs:unsignedInt" use="optional" />
                         <xs:attribute name="layerfadespeed" type="xs:decimal" use="optional" />

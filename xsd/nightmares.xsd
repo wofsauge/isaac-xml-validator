@@ -5,13 +5,13 @@
             <xs:sequence>
                 <xs:element maxOccurs="unbounded" name="nightmare">
                     <xs:complexType>
-                        <xs:attribute name="anm2" type="xs:string" use="required" />
+                        <xs:attribute name="anm2" type="xsisaac:anm2File" use="required" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <xs:attribute name="root" type="xs:string" use="required" />
-            <xs:attribute name="progressAnm2" type="xs:string" use="required" />
-            <xs:attribute name="backgroundAnm2" type="xs:string" use="required" />
+            <xs:attribute name="root" type="xsisaac:gfxPath" use="required" />
+            <xs:attribute name="progressAnm2" type="xsisaac:anm2File" use="required" />
+            <xs:attribute name="backgroundAnm2" type="xsisaac:anm2File" use="required" />
         </xs:complexType>
     </xs:element>
 </xs:schema>

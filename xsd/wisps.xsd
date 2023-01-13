@@ -34,7 +34,7 @@
             <xs:attribute name="tearVariant" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="procChance" type="xs:decimal" use="optional" />
             <xs:attribute name="tearFlags2" type="xs:string" use="optional" />
-            <xs:attribute name="coreGfx" type="xs:string" use="optional" />
+            <xs:attribute name="coreGfx" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="tearColor2" type="xs:string" use="optional" />
             <xs:attribute name="tearScale2" type="xs:decimal" use="optional" />
             <xs:attribute name="damageMultiplier2" type="xs:unsignedInt" use="optional" />
@@ -44,7 +44,7 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="gfxroot" type="xs:string" use="required" />
+      <xs:attribute name="gfxroot" type="xsisaac:gfxPath" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

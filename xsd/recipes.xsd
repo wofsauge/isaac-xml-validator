@@ -1,10 +1,11 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/Isaac-XML-Validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd" namespace="https://wofsauge.github.io/Isaac-XML-Validator" />
   <xs:element name="recipes">
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" name="recipe">
           <xs:complexType>
-            <xs:attribute name="input" type="xs:string" use="required" />
+            <xs:attribute name="input" type="xsisaac:recipe" use="required" />
             <xs:attribute name="output" type="xs:unsignedShort" use="required" />
           </xs:complexType>
         </xs:element>
