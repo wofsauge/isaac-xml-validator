@@ -35,7 +35,7 @@ $(document).ready(function() {
 	var refAnnotations= {};
 	var lastAnnotations;
 	$.ajax({
-		url: "https://wofsauge.github.io/Isaac-XML-Validator/isaacTypes.xsd",
+		url: "https://wofsauge.github.io/isaac-xml-validator/isaacTypes.xsd",
 		dataType: "xml",
 		success: function(data){ 
 			refXML = data;
@@ -69,7 +69,7 @@ $(document).ready(function() {
 		}
 
 		$.ajax({
-			url: "https://wofsauge.github.io/Isaac-XML-Validator/xsd/"+fileName,
+			url: "https://wofsauge.github.io/isaac-xml-validator/xsd/"+fileName,
 			success: function(data){ 
 				// Workaround for HTTPS imports not working with this xsd validator library
 				// manually import the file content

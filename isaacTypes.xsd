@@ -1,4 +1,4 @@
-<xs:schema elementFormDefault="qualified" xml:lang="EN" targetNamespace="https://wofsauge.github.io/Isaac-XML-Validator" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema elementFormDefault="qualified" xml:lang="EN" targetNamespace="https://wofsauge.github.io/isaac-xml-validator" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:simpleType name="pngFile">
         <xs:annotation>
             <xs:documentation>Filename or path required that needs to end with ".png"</xs:documentation>
