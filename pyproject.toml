@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "isaac-xml-validator"
-version = "1.0.36"
+version = "1.0.0"
 description = "A script to validate an XML file for The Binding of Isaac: Rebirth"
 authors = ["Wofsauge <jan-.-@t-online.de>"]
 license = "MIT"
