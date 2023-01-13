@@ -4,6 +4,7 @@ import glob
 import lxml
 import lxml.etree
 
+
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -56,24 +57,29 @@ def clearIsaacRefsRecursive(node):
         clearIsaacRefsRecursive(child)
 
 
+def printf(*args):
+    print(*args, flush=True)
+
+
 def printErr(string):
-    print(bcolors.FAIL + str(string) + bcolors.ENDC)
+    printf(bcolors.FAIL + str(string) + bcolors.ENDC)
 
 
 def printOK(string):
-    print(bcolors.OKGREEN + str(string) + bcolors.ENDC)
+    printf(bcolors.OKGREEN + str(string) + bcolors.ENDC)
 
 
 def printWarn(string):
-    print(bcolors.WARNING + str(string) + bcolors.ENDC)
+    printf(bcolors.WARNING + str(string) + bcolors.ENDC)
+
 
 def main():
     global rootFolder, expectedErrorCount, recursive
-    scriptPath =os.path.realpath(__file__).replace("main.py","")
+    scriptPath = os.path.realpath(__file__).replace("main.py", "")
 
     totalErrorCount = 0
     files = glob.glob(rootFolder + "/**.xml", recursive=recursive)
-    print("Found "+str(len(files))+ " files in path: "+rootFolder + "/**.xml")
+    printf("Found " + str(len(files)) + " files in path: " + rootFolder + "/**.xml")
     for filename in files:
         filteredFilename = filename.split("\\")[len(filename.split("\\")) - 1]
         filteredFilename = filteredFilename.split("/")[
@@ -83,16 +89,16 @@ def main():
             printWarn("Ignoring file: " + filename)
             continue
 
-        print("Now analysing: " + filename)
+        printf("Now analyzing: " + filename)
 
         errCount = 0
         try:
-            xmlschema_root_doc = lxml.etree.parse(scriptPath+"isaacTypes.xsd")
+            xmlschema_root_doc = lxml.etree.parse(scriptPath + "isaacTypes.xsd")
             xmlschema_doc = lxml.etree.parse(
-                scriptPath+"xsd/" + filteredFilename.replace(".xml", ".xsd")
+                scriptPath + "xsd/" + filteredFilename.replace(".xml", ".xsd")
             )
 
-            # Replace import node with content of the imported file, because lxml doesnt like https links
+            # Replace import node with content of the imported file, because lxml does not like https links.
             node = xmlschema_doc.getroot().find(
                 "{http://www.w3.org/2001/XMLSchema}import"
             )
@@ -125,12 +131,11 @@ def main():
             printErr("SYNTAX ERROR DETECTED!!")
 
         if errCount > 0:
-            print("---- End errors for file: " + filename)
+            printf("---- End errors for file: " + filename)
 
         totalErrorCount += errCount
 
-
-    print("~~~~~ Finished analysing " + str(len(files)) + " files! ~~~~~")
+    printf("~~~~~ Finished analyzing " + str(len(files)) + " files! ~~~~~")
     if totalErrorCount > 0:
         printErr("Found: " + str(totalErrorCount) + " Errors")
         if int(totalErrorCount) != int(expectedErrorCount):
@@ -140,28 +145,27 @@ def main():
         printOK("No errors found")
 
 
-
-
 def readGithubEnvVars():
     global rootFolder, expectedErrorCount, recursive
-    print("Evaluate settings:")
+    printf("Evaluate settings:")
     if "INPUT_ROOTFOLDER" in os.environ:
         rootFolder = os.environ["INPUT_ROOTFOLDER"]
     else:
         rootFolder = "**"
-    print("\tRoot folder: ", rootFolder)
+    printf("\tRoot folder: ", rootFolder)
 
     if "INPUT_RECURSIVE" in os.environ:
         recursive = os.environ["INPUT_RECURSIVE"]
     else:
         recursive = True
-    print("\tRecursive: ", recursive)
+    printf("\tRecursive: ", recursive)
 
     if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
         expectedErrorCount = os.environ["INPUT_EXPECTEDERRORCOUNT"]
     else:
         expectedErrorCount = 5
-    print("\tExpected Error Count: ", expectedErrorCount)
+    printf("\tExpected Error Count: ", expectedErrorCount)
+
 
 if __name__ == "__main__":
     readGithubEnvVars()

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "isaac-xml-validator"
+version = "1.0.36"
+description = "A script to validate an XML file for The Binding of Isaac: Rebirth"
+authors = ["Wofsauge <jan-.-@t-online.de>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+isaac-xml-validator = 'isaac_xml_validator:main'
