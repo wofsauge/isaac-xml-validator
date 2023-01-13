@@ -4,7 +4,9 @@ A collection of XSD files used to validate XML files of the Game "The Binding of
 XSD file generator used: [https://www.liquid-technologies.com/online-xml-to-xsd-converter](https://www.liquid-technologies.com/online-xml-to-xsd-converter)
 
 
-Live-XML Validator tool: [https://wofsauge.github.io/Isaac-XML-Validator/webtool](https://wofsauge.github.io/Isaac-XML-Validator/webtool)
+**Live-XML Validator tool**: [https://wofsauge.github.io/Isaac-XML-Validator/webtool](https://wofsauge.github.io/Isaac-XML-Validator/webtool)
+
+A **GitHub Action** providing automated validation of your Isaac .xml files in your repo can be found here: [https://github.com/wofsauge/Isaac-xmlvalidator-action](https://github.com/wofsauge/Isaac-xmlvalidator-action)
 
 
 ## Isaac Datatype usage example:
