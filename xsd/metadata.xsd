@@ -1,0 +1,20 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/isaac-xml-validator">
+  <xs:import schemaLocation="https://wofsauge.github.io/isaac-xml-validator/isaacTypes.xsd" namespace="https://wofsauge.github.io/isaac-xml-validator" />
+  <xs:element name="metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="directory" type="xs:string" />
+        <xs:element name="id" type="xs:unsignedInt" />
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="version" type="xs:decimal" />
+        <xs:element name="visibility" type="xs:string" />
+        <xs:element maxOccurs="unbounded" name="tag">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
