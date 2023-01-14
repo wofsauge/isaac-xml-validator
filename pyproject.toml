@@ -6,7 +6,7 @@ authors = ["Wofsauge <jan-.-@t-online.de>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 
