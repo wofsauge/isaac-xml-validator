@@ -4,6 +4,7 @@ import glob
 import lxml
 import lxml.etree
 
+
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -16,10 +17,18 @@ class bcolors:
     UNDERLINE = "\033[4m"
 
 
-# Default values
-global rootFolder, expectedErrorCount, recursive, errorCount
+# Configuration values from the end-user and/or GitHub Actions
+global rootFolder
+rootFolder = "**"
+global recursive
+recursive = True
+global expectedErrorCount
+expectedErrorCount = 0
 
-fileIgnoreList =[
+# Other global variables
+global errorCount
+
+fileIgnoreList = [
     "fxlayers.xml",
     "seedmenu.xml",
 ]
@@ -59,8 +68,10 @@ def clearIsaacRefsRecursive(node):
             child.set("type", child.get("type").replace("xsisaac:", ""))
         clearIsaacRefsRecursive(child)
 
+
 def printf(*args):
     print(*args, flush=True)
+
 
 def printErr(string):
     printf(bcolors.FAIL + str(string) + bcolors.ENDC)
@@ -73,6 +84,7 @@ def printOK(string):
 def printWarn(string):
     printf(bcolors.WARNING + str(string) + bcolors.ENDC)
 
+
 def parseAndCheckSyntax(filename):
     try:
         return lxml.etree.parse(filename)
@@ -83,13 +95,14 @@ def parseAndCheckSyntax(filename):
         printErr("SYNTAX ERROR DETECTED!!")
     return None
 
+
 def main():
     global rootFolder, expectedErrorCount, recursive, errorCount
-    scriptPath = os.getcwd()+"/isaac-xml-validator/"
+    scriptPath = os.getcwd() + "/isaac-xml-validator/"
 
     totalErrorCount = 0
     files = glob.glob(rootFolder + "/**.xml", recursive=recursive)
-    printf("Found "+str(len(files))+ " files in path: "+rootFolder + "/**.xml")
+    printf("Found " + str(len(files)) + " files in path: " + rootFolder + "/**.xml")
     for filename in files:
         filteredFilename = filename.split("\\")[len(filename.split("\\")) - 1]
         filteredFilename = filteredFilename.split("/")[
@@ -102,11 +115,11 @@ def main():
             continue
 
         if filteredFilename not in fileAllowList:
-            
+
             printf("Analyzing file as normal xml: " + filename)
             isValid = parseAndCheckSyntax(filename) is not None
         else:
-            
+
             printf("Analyzing Isaac xml file: " + filename)
 
             try:
@@ -150,7 +163,6 @@ def main():
 
         totalErrorCount += errorCount
 
-
     printf("~~~~~ Finished analysing " + str(len(files)) + " files! ~~~~~")
     if totalErrorCount > 0:
         printErr("Found: " + str(totalErrorCount) + " Errors")
@@ -161,28 +173,22 @@ def main():
         printOK("No errors found")
 
 
-
-
 def readGithubEnvVars():
     global rootFolder, expectedErrorCount, recursive
     printf("Evaluate settings:")
+
     if "INPUT_ROOTFOLDER" in os.environ:
         rootFolder = os.environ["INPUT_ROOTFOLDER"]
-    else:
-        rootFolder = "**"
     printf("\tRoot folder: ", rootFolder)
 
     if "INPUT_RECURSIVE" in os.environ:
         recursive = os.environ["INPUT_RECURSIVE"]
-    else:
-        recursive = True
     printf("\tRecursive: ", recursive)
 
     if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
         expectedErrorCount = os.environ["INPUT_EXPECTEDERRORCOUNT"]
-    else:
-        expectedErrorCount = 5
     printf("\tExpected Error Count: ", expectedErrorCount)
+
 
 if __name__ == "__main__":
     readGithubEnvVars()
