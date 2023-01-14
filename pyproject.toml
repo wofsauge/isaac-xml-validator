@@ -4,6 +4,7 @@ version = "1.1.0"
 description = "A script to validate XML files for The Binding of Isaac: Rebirth"
 authors = ["Wofsauge <jan-.-@t-online.de>"]
 license = "MIT"
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -16,3 +17,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 isaac-xml-validator = 'isaac_xml_validator:main'
+
+[project.urls]
+"Homepage" = "https://github.com/wofsauge/isaac-xml-validator"
+"Bug Tracker" = "https://github.com/wofsauge/isaac-xml-validator/issues"
