@@ -31,6 +31,25 @@ By default, it will recursively scan for all XML files in the current working di
 
 For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a GitHub action](https://github.com/wofsauge/Isaac-xmlvalidator-action) that automatically invokes the script.
 
+## Add XSD as a validation Header
+
+If you want to use the XSD files for external validation tools, for example as a live evaluation in VS Code with the ["XML" extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml), you can add the following line of code at the top of your .xml file:
+
+```xml
+<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/[NAME OF THE FILE].xsd" ?>
+```
+**Example for the "babies.xml" file:**
+
+```xml
+<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/babies.xsd" ?>
+<babies root="gfx/Characters/Player2/">
+	<baby id="0" name="Spider Baby" skin="000_Baby_Spider.png" />
+	<baby id="1" name="Love Baby" skin="001_Baby_Love.pngz" />	<!-- evaluates as an error, because the "skin" attribute doesn't contain a .png file, but a .pngz-->
+	<baby id="2" name="Bloat Baby" skin="002_Baby_Bloat.png" />
+</babies>
+```
+
+
 ## Creating New XSD Files
 
 If you need to create new XSD files, you can import our common XML schema like this:
