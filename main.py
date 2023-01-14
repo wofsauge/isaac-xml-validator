@@ -17,8 +17,12 @@ class bcolors:
 
 
 # Default values
-global rootFolder, expectedErrorCount, recursive
+global rootFolder, expectedErrorCount, recursive, errorCount
 
+fileIgnoreList =[
+    "fxlayers.xml",
+    "seedmenu.xml",
+]
 
 fileAllowList = [
     "bossportraits.xml",
@@ -72,13 +76,14 @@ def parseAndCheckSyntax(filename):
         return lxml.etree.parse(filename)
     except Exception as err:
         printErr(err)
-        errCount += 1
+        global errorCount
+        errorCount += 1
         printErr("SYNTAX ERROR DETECTED!!")
     return None
 
 def main():
-    global rootFolder, expectedErrorCount, recursive
-    scriptPath = os.getcwd()
+    global rootFolder, expectedErrorCount, recursive, errorCount
+    scriptPath = os.getcwd()+"/isaac-xml-validator/"
 
     totalErrorCount = 0
     files = glob.glob(rootFolder + "/**.xml", recursive=recursive)
@@ -89,7 +94,10 @@ def main():
             len(filteredFilename.split("/")) - 1
         ]
         isValid = False
-        errCount = 0
+        errorCount = 0
+        if filteredFilename in fileIgnoreList:
+            printWarn("Skip ignored xml file: " + filename)
+            continue
 
         if filteredFilename not in fileAllowList:
             
@@ -100,9 +108,9 @@ def main():
             print("Analyzing Isaac xml file: " + filename)
 
             try:
-                xmlschema_root_doc = lxml.etree.parse(scriptPath + "/isaacTypes.xsd")
+                xmlschema_root_doc = lxml.etree.parse(scriptPath + "isaacTypes.xsd")
                 xmlschema_doc = lxml.etree.parse(
-                    scriptPath + "/xsd/" + filteredFilename.replace(".xml", ".xsd")
+                    scriptPath + "xsd/" + filteredFilename.replace(".xml", ".xsd")
                 )
 
                 # Replace import node with content of the imported file, because lxml doesnt like https links
@@ -132,13 +140,13 @@ def main():
                     + ": "
                     + error.message
                 )
-            errCount += len(xmlschema.error_log)
-            if errCount > 0:
+            errorCount += len(xmlschema.error_log)
+            if errorCount > 0:
                 print("---- End errors for file: " + filename)
         else:
             printOK("File is valid")
 
-        totalErrorCount += errCount
+        totalErrorCount += errorCount
 
 
     print("~~~~~ Finished analysing " + str(len(files)) + " files! ~~~~~")
