@@ -60,12 +60,13 @@
             <xs:attribute name="collisionMass" type="xs:unsignedShort" use="required" />
             <xs:attribute name="collisionRadius" type="xs:unsignedInt" use="required" />
             <xs:attribute name="friction" type="xs:decimal" use="required" />
-            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
             <xs:attribute name="name" type="xs:string" use="required" />
             <xs:attribute name="numGridCollisionPoints" type="xs:unsignedInt" use="required" />
             <xs:attribute name="shadowSize" type="xs:decimal" use="required" />
             <xs:attribute name="stageHP" type="xs:decimal" use="optional" />
             <xs:attribute name="variant" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="devolve" type="xs:string" use="required" />
             <xs:attribute name="tags" type="xs:string" use="optional" />
             <xs:attribute name="collisionInterval" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="subtype" type="xs:unsignedInt" use="optional" />

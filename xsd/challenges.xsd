@@ -6,7 +6,7 @@
         <xs:element maxOccurs="unbounded" name="challenge">
           <xs:complexType>
             <xs:attribute name="name" type="xs:string" use="required" />
-            <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="endstage" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="roomfilter" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="cursefilter" type="xs:unsignedInt" use="optional" />

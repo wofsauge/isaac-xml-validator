@@ -8,7 +8,8 @@
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="Item">
                 <xs:complexType>
-                  <xs:attribute name="Id" type="xs:unsignedShort" use="required" />
+                  <xs:attribute name="Id" type="xs:unsignedShort" use="optional" />
+                  <xs:attribute name="Name" type="xs:string" use="optional" />
                   <xs:attribute name="Weight" type="xs:decimal" use="required" />
                   <xs:attribute name="DecreaseBy" type="xs:decimal" use="required" />
                   <xs:attribute name="RemoveOn" type="xs:decimal" use="required" />
