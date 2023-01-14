@@ -26,7 +26,7 @@ isaac-xml-validator
 
 By default, it will recursively scan for all XML files in the current working directory.
 
-## Using GitHub Actions
+## Usage in GitHub Actions
 
 For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a GitHub action](https://github.com/wofsauge/Isaac-xmlvalidator-action) that automatically invokes the script.
 
