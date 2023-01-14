@@ -59,17 +59,19 @@ def clearIsaacRefsRecursive(node):
             child.set("type", child.get("type").replace("xsisaac:", ""))
         clearIsaacRefsRecursive(child)
 
+def printf(*args):
+    print(*args, flush=True)
 
 def printErr(string):
-    print(bcolors.FAIL + str(string) + bcolors.ENDC)
+    printf(bcolors.FAIL + str(string) + bcolors.ENDC)
 
 
 def printOK(string):
-    print(bcolors.OKGREEN + str(string) + bcolors.ENDC)
+    printf(bcolors.OKGREEN + str(string) + bcolors.ENDC)
 
 
 def printWarn(string):
-    print(bcolors.WARNING + str(string) + bcolors.ENDC)
+    printf(bcolors.WARNING + str(string) + bcolors.ENDC)
 
 def parseAndCheckSyntax(filename):
     try:
@@ -87,7 +89,7 @@ def main():
 
     totalErrorCount = 0
     files = glob.glob(rootFolder + "/**.xml", recursive=recursive)
-    print("Found "+str(len(files))+ " files in path: "+rootFolder + "/**.xml")
+    printf("Found "+str(len(files))+ " files in path: "+rootFolder + "/**.xml")
     for filename in files:
         filteredFilename = filename.split("\\")[len(filename.split("\\")) - 1]
         filteredFilename = filteredFilename.split("/")[
@@ -101,11 +103,11 @@ def main():
 
         if filteredFilename not in fileAllowList:
             
-            print("Analyzing file as normal xml: " + filename)
+            printf("Analyzing file as normal xml: " + filename)
             isValid = parseAndCheckSyntax(filename) is not None
         else:
             
-            print("Analyzing Isaac xml file: " + filename)
+            printf("Analyzing Isaac xml file: " + filename)
 
             try:
                 xmlschema_root_doc = lxml.etree.parse(scriptPath + "isaacTypes.xsd")
@@ -142,14 +144,14 @@ def main():
                 )
             errorCount += len(xmlschema.error_log)
             if errorCount > 0:
-                print("---- End errors for file: " + filename)
+                printf("---- End errors for file: " + filename)
         else:
             printOK("File is valid")
 
         totalErrorCount += errorCount
 
 
-    print("~~~~~ Finished analysing " + str(len(files)) + " files! ~~~~~")
+    printf("~~~~~ Finished analysing " + str(len(files)) + " files! ~~~~~")
     if totalErrorCount > 0:
         printErr("Found: " + str(totalErrorCount) + " Errors")
         if int(totalErrorCount) != int(expectedErrorCount):
@@ -163,24 +165,24 @@ def main():
 
 def readGithubEnvVars():
     global rootFolder, expectedErrorCount, recursive
-    print("Evaluate settings:")
+    printf("Evaluate settings:")
     if "INPUT_ROOTFOLDER" in os.environ:
         rootFolder = os.environ["INPUT_ROOTFOLDER"]
     else:
         rootFolder = "**"
-    print("\tRoot folder: ", rootFolder)
+    printf("\tRoot folder: ", rootFolder)
 
     if "INPUT_RECURSIVE" in os.environ:
         recursive = os.environ["INPUT_RECURSIVE"]
     else:
         recursive = True
-    print("\tRecursive: ", recursive)
+    printf("\tRecursive: ", recursive)
 
     if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
         expectedErrorCount = os.environ["INPUT_EXPECTEDERRORCOUNT"]
     else:
         expectedErrorCount = 5
-    print("\tExpected Error Count: ", expectedErrorCount)
+    printf("\tExpected Error Count: ", expectedErrorCount)
 
 if __name__ == "__main__":
     readGithubEnvVars()
