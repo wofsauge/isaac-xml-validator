@@ -14,13 +14,13 @@
             </xs:sequence>
             <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="name" type="xs:string" use="required" />
-            <xs:attribute name="skin" type="xs:string" use="required" />
+            <xs:attribute name="skin" type="xs:string" use="optional" />
             <xs:attribute name="hp" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="nameimage" type="xsisaac:pngFile" use="required" />
             <xs:attribute name="portrait" type="xsisaac:pngFile" use="required" />
             <xs:attribute name="skinColor" type="xs:byte" use="required" />
-            <xs:attribute name="birthright" type="xs:string" use="required" />
+            <xs:attribute name="birthright" type="xs:string" use="optional" />
             <xs:attribute name="costume" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="items" type="xs:string" use="optional" />
             <xs:attribute name="achievement" type="xs:short" use="optional" />
