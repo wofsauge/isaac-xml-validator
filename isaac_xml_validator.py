@@ -3,8 +3,9 @@ import sys
 import glob
 import lxml
 import lxml.etree
-
-
+import importlib.metadata
+__package__ = importlib.metadata.metadata("isaac-xml-validator").get("name")
+__version__ = importlib.metadata.version("isaac-xml-validator")
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -20,7 +21,6 @@ class bcolors:
 SCRIPT_PATH = os.path.realpath(__file__)
 SCRIPT_DIRECTORY = os.path.dirname(SCRIPT_PATH)
 XSD_DIRECTORY = os.path.join(SCRIPT_DIRECTORY, "xsd")
-
 
 # Configuration values from the end-user and/or GitHub Actions
 global root_folder
@@ -179,5 +179,6 @@ def read_github_env_vars():
 
 
 if __name__ == "__main__":
+    printf("--- " + __package__ + " --- Version:", __version__)
     read_github_env_vars()
     main()
