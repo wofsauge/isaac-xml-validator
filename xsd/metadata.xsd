@@ -7,7 +7,7 @@
         <xs:element name="directory" type="xs:string" minOccurs="1" maxOccurs="1" />
         <xs:element name="id" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
         <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1" />
-        <xs:element name="version" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+        <xs:element name="version" type="xs:string" minOccurs="1" maxOccurs="1" />
         <xs:element name="visibility" type="xs:string" minOccurs="0" maxOccurs="1" />
         <xs:element name="tag" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
