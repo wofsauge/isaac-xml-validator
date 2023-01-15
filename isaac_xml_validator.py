@@ -90,7 +90,7 @@ def main():
             print_warn(f"Skipping ignored XML file: {file_path}")
             continue
 
-        printf(f"Parsing XML file: {file_path}")
+        printf(f"Checking XML file: {file_path}")
 
         # First, do a basic XML validation without any specific schema.
         if not is_valid_xml(file_path):
@@ -154,7 +154,7 @@ def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
         xml_schema = lxml.etree.XMLSchema(xml_schema_file_doc)
         xml_doc = lxml.etree.parse(xml_file_path)
         xml_schema.validate(xml_doc)
-        return None
+        return xml_schema.error_log
 
     except Exception as err:
         print_err(err)
