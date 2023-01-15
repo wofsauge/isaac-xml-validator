@@ -3,13 +3,13 @@
   <xs:element name="metadata">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="name" type="xs:string" />
-        <xs:element name="directory" type="xs:string" />
-        <xs:element name="id" type="xs:unsignedInt" />
-        <xs:element name="description" type="xs:string" />
-        <xs:element name="version" type="xs:decimal" />
-        <xs:element name="visibility" type="xs:string" />
-        <xs:element maxOccurs="unbounded" name="tag">
+        <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="directory" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="id" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+        <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="version" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+        <xs:element name="visibility" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="tag" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>

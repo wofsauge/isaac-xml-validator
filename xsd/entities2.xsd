@@ -66,7 +66,7 @@
             <xs:attribute name="shadowSize" type="xs:decimal" use="required" />
             <xs:attribute name="stageHP" type="xs:decimal" use="optional" />
             <xs:attribute name="variant" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="devolve" type="xs:string" use="required" />
+            <xs:attribute name="devolve" type="xs:string" use="optional" />
             <xs:attribute name="tags" type="xs:string" use="optional" />
             <xs:attribute name="collisionInterval" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="subtype" type="xs:unsignedInt" use="optional" />
