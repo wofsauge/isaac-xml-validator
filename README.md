@@ -37,7 +37,7 @@ For example, this is how it would look for a "babies.xml" file:
 Note that by default, the XML extension caches the XSD files in the following location:
 
 ```text
-C:\Users\[username]\.lemminx\cache\https\wofsauge.github.io\isaac-xml-validator
+C:\Users\%USERNAME%\.lemminx\cache\https\wofsauge.github.io\isaac-xml-validator
 ```
 
 You can remove this directory if you want to purge the cache to download any potentially updated XSD files.
