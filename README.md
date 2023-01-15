@@ -11,6 +11,37 @@ This repo contains:
 
 You can view the website [here](https://wofsauge.github.io/isaac-xml-validator/webtool).
 
+## Usage in VSCode and Other IDEs
+
+Most people create Binding of Isaac mods (and other software) using [VSCode](https://code.visualstudio.com/), which is a very nice text editor / IDE.
+
+If you make a typo (or some other error) in your XML file, you can get VSCode to automatically show you the error with a little red squiggly line, which is really helpful. This is accomplished by specifying a link to the corresponding schema at the top of the file.
+
+First, make sure that you have the [XML extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml) installed. Next, add the following to the top of your XML file:
+
+```xml
+<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/[NAME OF THE FILE].xsd" ?>
+```
+
+For example, this is how it would look for a "babies.xml" file:
+
+```xml
+<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/babies.xsd" ?>
+<babies root="gfx/Characters/Player2/">
+  <baby id="0" name="Spider Baby" skin="000_Baby_Spider.png" />
+  <baby id="1" name="Love Baby" skin="001_Baby_Love.pngz" /> <!-- shows an error, because the "skin" attribute doesn't contain a .png file, but a .pngz-->
+  <baby id="2" name="Bloat Baby" skin="002_Baby_Bloat.png" />
+</babies>
+```
+
+Note that by default, the XML extension caches the XSD files in the following location:
+
+```text
+C:\Users\[username]\.lemminx\cache\https\wofsauge.github.io\isaac-xml-validator
+```
+
+You can remove this directory if you want to purge the cache to download any potentially updated XSD files.
+
 ## Using the Python Script
 
 The tool is published to PyPI, so you can install it via:
@@ -27,28 +58,11 @@ isaac-xml-validator
 
 By default, it will recursively scan for all XML files in the current working directory.
 
+You will likely want to set up your repository so that the script runs in CI (e.g. GitHub Actions).
+
 ## Usage in GitHub Actions
 
 For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a GitHub action](https://github.com/wofsauge/Isaac-xmlvalidator-action) that automatically invokes the script.
-
-## Add XSD as a validation Header
-
-If you want to use the XSD files for external validation tools, for example as a live evaluation in VS Code with the ["XML" extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml), you can add the following line of code at the top of your .xml file:
-
-```xml
-<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/[NAME OF THE FILE].xsd" ?>
-```
-**Example for the "babies.xml" file:**
-
-```xml
-<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/babies.xsd" ?>
-<babies root="gfx/Characters/Player2/">
-	<baby id="0" name="Spider Baby" skin="000_Baby_Spider.png" />
-	<baby id="1" name="Love Baby" skin="001_Baby_Love.pngz" />	<!-- evaluates as an error, because the "skin" attribute doesn't contain a .png file, but a .pngz-->
-	<baby id="2" name="Bloat Baby" skin="002_Baby_Bloat.png" />
-</babies>
-```
-
 
 ## Creating New XSD Files
 
