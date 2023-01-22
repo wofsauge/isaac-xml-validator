@@ -55,6 +55,22 @@ file_ignore_list = [
     "seedmenu.xml",
 ]
 
+# ~~~~~~~~~~~~ Special conditions ~~~~~~~~~~~~
+
+def entity2_auto_increment_check(root, file_path):
+    err_count = 0
+    for child in list(root):
+        if child.tag == "entity" and child.get("id") is not None and child.get("variant") is None:
+            if (child.get("id") == "5" or child.get("id") == "1000"):
+                print_err(f"{file_path}:line {child.sourceline}: Element '{child.tag}': Variant attribute is missing. This is not allowed for IDs equal 5 or 1000!")
+                err_count +=1
+    return err_count
+
+special_conditions = {
+    "entities2.xml": [entity2_auto_increment_check]
+}
+
+# ~~~~~~~~~~~~ Code ~~~~~~~~~~~~
 
 def clear_isaac_refs_recursive(node):
     for child in list(node):
@@ -121,20 +137,21 @@ def main():
 
         # Parse the XML file using our XSD file.
         xml_errors = parse_isaac_xml_file(file_path, xsd_path)
-        if xml_errors is None:
-            continue
-
-        for error in xml_errors:
-            print_err(
-                error.filename
-                + ":line "
-                + str(error.line)
-                + ":col "
-                + str(error.column)
-                + ": "
-                + error.message
-            )
+        if xml_errors is not None:
+            for error in xml_errors:
+                print_err(
+                    error.filename
+                    + ":line "
+                    + str(error.line)
+                    + ":col "
+                    + str(error.column)
+                    + ": "
+                    + error.message
+                )
         error_count += len(xml_errors)
+
+        error_count += evaluate_special_conditions(file_path)
+
         if error_count > 0:
             printf(f"---- End errors for file: {file_path}")
 
@@ -148,6 +165,19 @@ def main():
             sys.exit(1)
     else:
         print_ok("No errors found")
+
+def evaluate_special_conditions(xml_file_path: str):
+    """Checks file specific conditions that could not be evaluated with XSD schemas"""
+    try:
+        errorCount = 0
+        xml_doc = lxml.etree.parse(xml_file_path)
+        if os.path.basename(xml_file_path) in special_conditions:
+            for func in special_conditions[os.path.basename(xml_file_path)]:
+                errorCount += func(xml_doc.getroot(), xml_file_path)
+        return errorCount
+    except Exception as err:
+        print_err(err)
+        return 1
 
 
 def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
@@ -170,6 +200,7 @@ def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
         xml_schema = lxml.etree.XMLSchema(xml_schema_file_doc)
         xml_doc = lxml.etree.parse(xml_file_path)
         xml_schema.validate(xml_doc)
+
         return xml_schema.error_log
 
     except Exception as err:
