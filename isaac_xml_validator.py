@@ -1,4 +1,5 @@
 import os
+import argparse
 import sys
 import glob
 import lxml
@@ -6,6 +7,14 @@ import lxml.etree
 import importlib.metadata
 __package__ = importlib.metadata.metadata("isaac-xml-validator").get("name")
 __version__ = importlib.metadata.version("isaac-xml-validator")
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", '--version', action='version', version=str(__package__) +" "+str(__version__), help="Print version of package")
+parser.add_argument("-p", "--path", help="Path to folder")
+parser.add_argument("-r", "--recursive", help="Search thru folders recursively", type=bool)
+parser.add_argument("-e", "--errors", help="Expected number of errors", type=int)
+args = parser.parse_args()
+
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -25,10 +34,16 @@ XSD_DIRECTORY = os.path.join(SCRIPT_DIRECTORY, "xsd")
 # Configuration values from the end-user and/or GitHub Actions
 global root_folder
 root_folder = "**"
+if args.path is not None:
+    root_folder = args.path
 global recursive
 recursive = True
+if args.recursive is not None:
+    recursive = args.recursive
 global expected_error_count
 expected_error_count = 0
+if args.errors is not None:
+    expected_error_count = args.errors
 
 # Other global variables
 global error_count
@@ -75,8 +90,9 @@ def is_valid_xml(file_path):
 
 
 def main():
-    global root_folder, expected_error_count, recursive, error_count
+    printf("--- " + __package__ + " --- Version:", __version__)
 
+    global root_folder, expected_error_count, recursive, error_count
     total_error_count = 0
 
     files = glob.glob(root_folder + "/**.xml", recursive=recursive)
@@ -160,25 +176,5 @@ def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
         print_err(err)
         return xml_schema.error_log
 
-
-def read_github_env_vars():
-    global root_folder, expected_error_count, recursive
-    printf("Evaluate settings:")
-
-    if "INPUT_ROOTFOLDER" in os.environ:
-        root_folder = os.environ["INPUT_ROOTFOLDER"]
-    printf("\tRoot folder: ", root_folder)
-
-    if "INPUT_RECURSIVE" in os.environ:
-        recursive = os.environ["INPUT_RECURSIVE"]
-    printf("\tRecursive: ", recursive)
-
-    if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
-        expected_error_count = os.environ["INPUT_EXPECTEDERRORCOUNT"]
-    printf("\tExpected Error Count: ", expected_error_count)
-
-
 if __name__ == "__main__":
-    printf("--- " + __package__ + " --- Version:", __version__)
-    read_github_env_vars()
     main()
