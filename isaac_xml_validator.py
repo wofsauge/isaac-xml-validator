@@ -176,5 +176,23 @@ def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
         print_err(err)
         return xml_schema.error_log
 
+def read_github_env_vars():
+    global root_folder, expected_error_count, recursive
+    printf("Evaluate settings:")
+
+    if "INPUT_ROOTFOLDER" in os.environ:
+        root_folder = os.environ["INPUT_ROOTFOLDER"]
+    printf("\tRoot folder: ", root_folder)
+
+    if "INPUT_RECURSIVE" in os.environ:
+        recursive = os.environ["INPUT_RECURSIVE"]
+    printf("\tRecursive: ", recursive)
+
+    if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
+        expected_error_count = os.environ["INPUT_EXPECTEDERRORCOUNT"]
+    printf("\tExpected Error Count: ", expected_error_count)
+
+
 if __name__ == "__main__":
+    read_github_env_vars()
     main()
