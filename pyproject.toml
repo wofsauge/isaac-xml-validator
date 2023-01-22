@@ -5,7 +5,7 @@ description = "A script to validate XML files for the game 'The Binding of Isaac
 authors = ["Wofsauge <jan-.-@t-online.de>"]
 license = "MIT"
 readme = "README.md"
-include = [{ path = "xsd", format = ["sdist", "wheel"] }]
+include = [{ path = "xsd", format = ["sdist", "wheel"] },{ path = "xsd/entities2.xsd", format = ["sdist", "wheel"] },]
 
 [tool.poetry.dependencies]
 python = "^3.8"
