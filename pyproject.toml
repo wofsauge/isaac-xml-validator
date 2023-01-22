@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "isaac-xml-validator"
-version = "1.6.0"
+version = "1.6.1"
 description = "A script to validate XML files for the game 'The Binding of Isaac: Repentance'"
 authors = ["Wofsauge <jan-.-@t-online.de>"]
 license = "MIT"
 readme = "README.md"
-include = [{ path = "xsd/entities2.xsd", format = ["sdist", "wheel"] },]
+packages = [{ include = "xsd" }]
+include = ["xsd"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
