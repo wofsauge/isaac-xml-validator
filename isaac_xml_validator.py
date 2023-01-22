@@ -5,6 +5,7 @@ import glob
 import lxml
 import lxml.etree
 import importlib.metadata
+import importlib.resources
 __package__ = importlib.metadata.metadata("isaac-xml-validator").get("name")
 __version__ = importlib.metadata.version("isaac-xml-validator")
 
