@@ -185,11 +185,11 @@ def read_github_env_vars():
     printf("\tRoot folder: ", root_folder)
 
     if "INPUT_RECURSIVE" in os.environ:
-        recursive = os.environ["INPUT_RECURSIVE"]
+        recursive = bool(os.environ["INPUT_RECURSIVE"])
     printf("\tRecursive: ", recursive)
 
     if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
-        expected_error_count = os.environ["INPUT_EXPECTEDERRORCOUNT"]
+        expected_error_count = int(os.environ["INPUT_EXPECTEDERRORCOUNT"])
     printf("\tExpected Error Count: ", expected_error_count)
 
 
