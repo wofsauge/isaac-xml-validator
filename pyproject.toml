@@ -10,6 +10,7 @@ include = ["xsd"]
 [tool.poetry.dependencies]
 python = "^3.8"
 lxml = "^4.9.2"
+importlib-metadata = "^4.11.3"
 
 [tool.poetry.dev-dependencies]
 
