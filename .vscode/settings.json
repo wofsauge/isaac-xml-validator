@@ -1,0 +1,48 @@
+// These are Visual Studio Code settings that should apply to this particular repository.
+{
+  // ----------------
+  // Vanilla settings
+  // ----------------
+
+  // This matches Black's default settings.
+  "editor.rulers": [88],
+  "editor.tabSize": 4,
+
+  "files.associations": {
+    ".env*": "shellscript" // e.g. ".env.example" is the same as ".env".
+  },
+
+  // Linux line endings are used in this project.
+  "files.eol": "\n",
+
+  // Automatically removing all trailing whitespace when saving a file.
+  "files.trimTrailingWhitespace": true,
+
+  // -----------------
+  // Language settings
+  // -----------------
+
+  // Use "black" to automatically format Python files.
+  // https://github.com/psf/black
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": false,
+
+  // Automatically run the formatter when certain files are saved.
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  }
+}
