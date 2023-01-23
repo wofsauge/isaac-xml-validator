@@ -20,7 +20,7 @@ parser.add_argument(
 )
 parser.add_argument("-p", "--path", help="Path to folder")
 parser.add_argument(
-    "-r", "--recursive", help="Search thru folders recursively", type=bool
+    "-r", "--recursive", help="Search through folders recursively", type=bool
 )
 parser.add_argument("-e", "--errors", help="Expected number of errors", type=int)
 args = parser.parse_args()
