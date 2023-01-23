@@ -6,15 +6,25 @@ import lxml
 import lxml.etree
 import importlib.metadata
 import importlib.resources
+
 __package__ = importlib.metadata.metadata("isaac-xml-validator").get("name")
 __version__ = importlib.metadata.version("isaac-xml-validator")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", '--version', action='version', version=str(__package__) +" "+str(__version__), help="Print version of package")
+parser.add_argument(
+    "-v",
+    "--version",
+    action="version",
+    version=str(__package__) + " " + str(__version__),
+    help="Print version of package",
+)
 parser.add_argument("-p", "--path", help="Path to folder")
-parser.add_argument("-r", "--recursive", help="Search thru folders recursively", type=bool)
+parser.add_argument(
+    "-r", "--recursive", help="Search thru folders recursively", type=bool
+)
 parser.add_argument("-e", "--errors", help="Expected number of errors", type=int)
 args = parser.parse_args()
+
 
 class bcolors:
     HEADER = "\033[95m"
@@ -58,20 +68,27 @@ file_ignore_list = [
 
 # ~~~~~~~~~~~~ Special conditions ~~~~~~~~~~~~
 
+
 def entity2_auto_increment_check(root, file_path):
     err_count = 0
     for child in list(root):
-        if child.tag == "entity" and child.get("id") is not None and child.get("variant") is None:
-            if (child.get("id") == "5" or child.get("id") == "1000"):
-                print_err(f"{file_path}:line {child.sourceline}: Element '{child.tag}': Variant attribute is missing. This is not allowed for IDs equal 5 or 1000!")
-                err_count +=1
+        if (
+            child.tag == "entity"
+            and child.get("id") is not None
+            and child.get("variant") is None
+        ):
+            if child.get("id") == "5" or child.get("id") == "1000":
+                print_err(
+                    f"{file_path}:line {child.sourceline}: Element '{child.tag}': Variant attribute is missing. This is not allowed for IDs equal 5 or 1000!"
+                )
+                err_count += 1
     return err_count
 
-special_conditions = {
-    "entities2.xml": [entity2_auto_increment_check]
-}
+
+special_conditions = {"entities2.xml": [entity2_auto_increment_check]}
 
 # ~~~~~~~~~~~~ Code ~~~~~~~~~~~~
+
 
 def clear_isaac_refs_recursive(node):
     for child in list(node):
@@ -167,6 +184,7 @@ def main():
     else:
         print_ok("No errors found")
 
+
 def evaluate_special_conditions(xml_file_path: str):
     """Checks file specific conditions that could not be evaluated with XSD schemas"""
     try:
@@ -207,6 +225,7 @@ def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
     except Exception as err:
         print_err(err)
         return xml_schema.error_log
+
 
 def read_github_env_vars():
     global root_folder, expected_error_count, recursive
