@@ -5,6 +5,7 @@ import glob
 import lxml
 import lxml.etree
 import importlib.metadata
+
 __package__ = importlib.metadata.metadata("isaac-xml-validator").get("name")
 __version__ = importlib.metadata.version("isaac-xml-validator")
 
@@ -35,6 +36,7 @@ class bcolors:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
 
+
 SCRIPT_PATH = os.path.realpath(__file__)
 SCRIPT_DIRECTORY = os.path.dirname(SCRIPT_PATH)
 XSD_DIRECTORY = os.path.join(SCRIPT_DIRECTORY, "xsd")
@@ -56,12 +58,16 @@ if args.errors is not None:
 # Other global variables
 global error_count
 
-# Both of these files do not have a top-level tag, so they will always fail linting.
-# (The game's internal XML parser does not care about this.)
+
 file_ignore_list = [
+    # Ignore node module folders
+    "\\node_modules\\",
+    # Both of these files do not have a top-level tag, so they will always fail linting.
+    # (The game's internal XML parser does not care about this.)
     "fxlayers.xml",
     "seedmenu.xml",
 ]
+
 
 # ~~~~~~~~~~~~ Special conditions ~~~~~~~~~~~~
 
@@ -127,15 +133,15 @@ def main():
     total_error_count = 0
 
     files = glob.glob(root_folder + "/**.xml", recursive=recursive)
+    # remove files and folders to ignore
+    for ignoreFile in file_ignore_list:
+        files = [f for f in files if ignoreFile not in f]
+
     printf(f"Found {len(files)} files in path: {root_folder}/**.xml")
 
     for file_path in files:
         error_count = 0
-
         file_name = os.path.basename(file_path)
-        if file_name in file_ignore_list:
-            print_warn(f"Skipping ignored XML file: {file_path}")
-            continue
 
         printf(f"Checking XML file: {file_path}")
 
