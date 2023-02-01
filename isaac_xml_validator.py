@@ -22,6 +22,9 @@ parser.add_argument(
     "-r", "--recursive", help="Search through folders recursively", type=bool
 )
 parser.add_argument("-e", "--errors", help="Expected number of errors", type=int)
+parser.add_argument(
+    "-i", "--ignore", help="files and folders to exclude. Seperated by comma ','"
+)
 args = parser.parse_args()
 
 
@@ -41,21 +44,7 @@ SCRIPT_PATH = os.path.realpath(__file__)
 SCRIPT_DIRECTORY = os.path.dirname(SCRIPT_PATH)
 XSD_DIRECTORY = os.path.join(SCRIPT_DIRECTORY, "xsd")
 
-# Configuration values from the end-user and/or GitHub Actions
-global root_folder
-root_folder = "**"
-if args.path is not None:
-    root_folder = args.path
-global recursive
-recursive = True
-if args.recursive is not None:
-    recursive = args.recursive
-global expected_error_count
-expected_error_count = 0
-if args.errors is not None:
-    expected_error_count = args.errors
-
-# Other global variables
+# global variables
 global error_count
 
 
@@ -67,6 +56,27 @@ file_ignore_list = [
     "fxlayers.xml",
     "seedmenu.xml",
 ]
+
+# Configuration values from the end-user and/or GitHub Actions
+global root_folder
+root_folder = "**"
+if args.path is not None:
+    root_folder = args.path
+
+global recursive
+recursive = True
+if args.recursive is not None:
+    recursive = args.recursive
+
+global expected_error_count
+expected_error_count = 0
+if args.errors is not None:
+    expected_error_count = args.errors
+
+global ignore_files
+ignore_files = []
+if args.ignore is not None:
+    file_ignore_list.extend(args.ignore.split(","))
 
 
 # ~~~~~~~~~~~~ Special conditions ~~~~~~~~~~~~
@@ -262,6 +272,10 @@ def read_github_env_vars():
     if "INPUT_EXPECTEDERRORCOUNT" in os.environ:
         expected_error_count = int(os.environ["INPUT_EXPECTEDERRORCOUNT"])
     printf("\tExpected Error Count: ", expected_error_count)
+
+    if "INPUT_IGNORE" in os.environ:
+        file_ignore_list.extend(os.environ["INPUT_IGNORE"].split(","))
+    printf("\tIgnored files: ", file_ignore_list)
 
 
 if __name__ == "__main__":
