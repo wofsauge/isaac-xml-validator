@@ -49,6 +49,12 @@ The tool is published to PyPI, so you can install it via:
 pip install isaac-xml-validator
 ```
 
+Then, you can run it via:
+
+```sh
+isaac-xml-validator
+```
+
 By default, it will recursively scan for all XML files in the current working directory.
 
 You will likely want to set up your repository so that the script runs in CI (e.g. GitHub Actions).
