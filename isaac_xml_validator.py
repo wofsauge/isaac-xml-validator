@@ -126,6 +126,19 @@ def is_valid_xml(file_path):
         return False
 
 
+def get_gitignore_files():
+    gitignore_path = root_folder.replace("**", "") + ".gitignore"
+    if not os.path.isfile(gitignore_path):
+        return []
+
+    ignoreLineStarts = ("\n", "#", "*")
+    with open(gitignore_path, "r") as f:
+        lines = f.readlines()
+        lines = [line for line in lines if not line.startswith(ignoreLineStarts)]
+        lines = [line.replace("\n", "") for line in lines]
+        return lines
+
+
 def main():
     printf("--- " + __package__ + " --- Version:", __version__)
 
@@ -136,6 +149,10 @@ def main():
     # remove files and folders to ignore
     for ignoreFile in file_ignore_list:
         files = [f for f in files if ignoreFile not in f]
+
+    # if exists, remove all folders and files mentioned in the .gitignore file
+    for git_ignore_file in get_gitignore_files():
+        files = [f for f in files if git_ignore_file not in f]
 
     printf(f"Found {len(files)} files in path: {root_folder}/**.xml")
 
