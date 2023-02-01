@@ -1,26 +1,29 @@
-[tool.poetry]
-name = "isaac-xml-validator"
-version = "1.6.1"
-description = "A script to validate XML files for the game 'The Binding of Isaac: Repentance'"
-authors = ["Wofsauge <jan-.-@t-online.de>"]
-license = "MIT"
-readme = "README.md"
-packages = [{ include = "xsd" }]
-include = ["xsd"]
-
-[tool.poetry.dependencies]
-python = "^3.8"
-lxml = "^4.9.2"
-importlib-metadata = "^4.11.3"
-
-[tool.poetry.dev-dependencies]
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
-[tool.poetry.scripts]
-isaac-xml-validator = 'isaac_xml_validator:main'
+[project]
+name = "isaac-xml-validator"
+version = "1.6.8"
+description = "A script to validate XML files for the game 'The Binding of Isaac: Repentance'"
+authors = [
+    {name = "Wofsauge", email = "jan-.-@t-online.de"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+dependencies = [
+    "lxml",
+    "importlib-metadata",
+]
+requires-python = ">=3.6"
+[tool.setuptools]
+py-modules = ["isaac_xml_validator"]
+
+[tool.setuptools.packages.find]
+where = [""]
+
+[tool.setuptools.package-data]
+"*" = ["*.xsd"]
 
 [project.urls]
 "Homepage" = "https://github.com/wofsauge/isaac-xml-validator"

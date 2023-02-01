@@ -70,7 +70,7 @@ If you need to create new XSD files, you can import our common XML schema like t
 
 ```xml
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsisaac="https://wofsauge.github.io/isaac-xml-validator">
-  <xs:import schemaLocation="https://wofsauge.github.io/isaac-xml-validator/isaacTypes.xsd" namespace="https://wofsauge.github.io/isaac-xml-validator" />
+  <xs:import schemaLocation="https://wofsauge.github.io/isaac-xml-validator/xsd/isaacTypes.xsd" namespace="https://wofsauge.github.io/isaac-xml-validator" />
   <xs:element name="Test">
     <xs:complexType>
       <xs:attribute name="root" type="xsisaac:pngFile" />

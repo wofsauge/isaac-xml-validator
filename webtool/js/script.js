@@ -35,7 +35,7 @@ $(document).ready(function() {
 	var refAnnotations= {};
 	var lastAnnotations;
 	$.ajax({
-		url: "https://wofsauge.github.io/isaac-xml-validator/isaacTypes.xsd",
+		url: "https://wofsauge.github.io/isaac-xml-validator/xsd/isaacTypes.xsd",
 		dataType: "xml",
 		success: function(data){ 
 			refXML = data;

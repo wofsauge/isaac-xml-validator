@@ -5,7 +5,6 @@ import glob
 import lxml
 import lxml.etree
 import importlib.metadata
-import importlib.resources
 __package__ = importlib.metadata.metadata("isaac-xml-validator").get("name")
 __version__ = importlib.metadata.version("isaac-xml-validator")
 
@@ -26,7 +25,6 @@ class bcolors:
     ENDC = "\033[0m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
-
 
 SCRIPT_PATH = os.path.realpath(__file__)
 SCRIPT_DIRECTORY = os.path.dirname(SCRIPT_PATH)
@@ -184,7 +182,7 @@ def evaluate_special_conditions(xml_file_path: str):
 def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
     """Returns an array of errors or `None` if validation succeeded."""
     try:
-        isaac_types_path = os.path.join(SCRIPT_DIRECTORY, "isaacTypes.xsd")
+        isaac_types_path = os.path.join(XSD_DIRECTORY, "isaacTypes.xsd")
         xml_schema_root_doc = lxml.etree.parse(isaac_types_path)
         xml_schema_file_doc = lxml.etree.parse(xsd_file_path)
 
