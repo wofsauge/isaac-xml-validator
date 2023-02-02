@@ -168,8 +168,14 @@ def main():
         files = [f for f in files if f not in ignoredFiles]
 
     # if exists, remove all folders and files mentioned in the .gitignore file
-    for git_ignore_file in get_gitignore_files():
-        files = [f for f in files if git_ignore_file not in f]
+    gitignore_files = get_gitignore_files()
+    if len(gitignore_files) > 0:
+        printf(
+            f"Found a .gitignore file. Using it to ignore additional {len(gitignore_files)} files and directories:"
+        )
+        printf(f"{gitignore_files}")
+        for git_ignore_file in gitignore_files:
+            files = [f for f in files if git_ignore_file not in f]
 
     printf(f"Found {len(files)} files in path: {root_folder}/**.xml")
 
