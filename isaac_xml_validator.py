@@ -154,6 +154,8 @@ def get_gitignore_files():
 def main():
     printf("--- " + __package__ + " --- Version:", __version__)
 
+    read_github_env_vars()
+
     global root_folder, expected_error_count, recursive, error_count
     total_error_count = 0
 
@@ -217,7 +219,7 @@ def main():
             print_err("Expected error count was not reached!")
             sys.exit(1)
     else:
-        print_ok("No errors found")
+        print_ok("No errors found.")
 
 
 def evaluate_special_conditions(xml_file_path: str):
@@ -284,5 +286,4 @@ def read_github_env_vars():
 
 
 if __name__ == "__main__":
-    read_github_env_vars()
     main()
