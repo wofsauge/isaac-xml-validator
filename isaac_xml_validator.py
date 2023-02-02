@@ -49,8 +49,10 @@ global error_count
 
 
 file_ignore_list = [
-    # Ignore node module folders
-    "\\node_modules\\",
+    # Ignore node module and rooms xml folders
+    "**\\node_modules\\**",
+    "**\\resources\\rooms\\**",
+    "**\\content\\rooms\\**",
     # Both of these files do not have a top-level tag, so they will always fail linting.
     # (The game's internal XML parser does not care about this.)
     "fxlayers.xml",
