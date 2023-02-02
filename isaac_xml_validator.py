@@ -25,6 +25,14 @@ parser.add_argument("-e", "--errors", help="Expected number of errors", type=int
 parser.add_argument(
     "-i", "--ignore", help="files and folders to exclude. Seperated by comma ','"
 )
+parser.add_argument(
+    "-s",
+    "--silent",
+    "-q",
+    "--quiet",
+    help="Hide all non error related log messages",
+    action="store_true",
+)
 args = parser.parse_args()
 
 
@@ -80,6 +88,10 @@ ignore_files = []
 if args.ignore is not None:
     file_ignore_list.extend(args.ignore.split(","))
 
+silent_mode = False
+if args.silent:
+    silent_mode = True
+
 
 # ~~~~~~~~~~~~ Special conditions ~~~~~~~~~~~~
 
@@ -113,11 +125,12 @@ def clear_isaac_refs_recursive(node):
 
 
 def printf(*args):
-    print(*args, flush=True)
+    if not silent_mode:
+        print(*args, flush=True)
 
 
 def print_err(string):
-    printf(bcolors.FAIL + str(string) + bcolors.ENDC)
+    print(bcolors.FAIL + str(string) + bcolors.ENDC, flush=True)
 
 
 def print_ok(string):
@@ -125,7 +138,7 @@ def print_ok(string):
 
 
 def print_warn(string):
-    printf(bcolors.WARNING + str(string) + bcolors.ENDC)
+    print(bcolors.WARNING + str(string) + bcolors.ENDC, flush=True)
 
 
 def is_valid_xml(file_path):
