@@ -160,7 +160,10 @@ def main():
     files = glob.glob(root_folder + "/**.xml", recursive=recursive)
     # remove files and folders to ignore
     for ignoreFile in file_ignore_list:
-        files = [f for f in files if ignoreFile not in f]
+        if not ignoreFile.startswith("*"):  # single file entry support
+            ignoreFile = "\\" + ignoreFile
+        ignoredFiles = glob.glob(root_folder + ignoreFile, recursive=True)
+        files = [f for f in files if f not in ignoredFiles]
 
     # if exists, remove all folders and files mentioned in the .gitignore file
     for git_ignore_file in get_gitignore_files():
