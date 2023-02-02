@@ -172,13 +172,6 @@ def main():
     global root_folder, expected_error_count, recursive, error_count
     total_error_count = 0
 
-    # clean up root folder for glob usage
-    if not root_folder.endswith("**"):
-        root_folder = root_folder + "**"
-    if not root_folder.endswith("/**") and not root_folder.endswith("\\**"):
-        root_folder = root_folder.replace("**", "/**")
-
-    # Query all affected files
     files = glob.glob(root_folder + "/**.xml", recursive=recursive)
     # remove files and folders to ignore
     for ignoreFile in file_ignore_list:
