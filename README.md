@@ -3,8 +3,8 @@
 This repo contains:
 
 - A [collection of XSD files](https://github.com/wofsauge/isaac-xml-validator/tree/main/xsd) used to validate XML files for mods of the game _[The Binding of Isaac: Repentance](https://store.steampowered.com/app/1426300/The_Binding_of_Isaac_Repentance/)_. (They were generated with the [`online-xml-to-xsd-converter`](https://www.liquid-technologies.com/online-xml-to-xsd-converter) tool.)
-- A [website](https://wofsauge.github.io/isaac-xml-validator/webtool) that allows end-users to copy paste arbitrary XML data to validate it.
-- A [Python script](https://github.com/wofsauge/isaac-xml-validator/blob/main/isaac-xml-validator.py) which allows you to lint all the XML files in the repository for your mod.
+- A [website](#using-the-website) that allows end-users to copy paste arbitrary XML data to validate it.
+- A [Python script](#using-the-python-script) which allows you to lint all the XML files in the repository for your mod.
 
 ## Using the Website
 
