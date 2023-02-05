@@ -16,6 +16,7 @@
               <xs:attribute name="mimiccharge" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="greedmode" type="xs:boolean" use="optional" />
               <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="hud" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element maxOccurs="unbounded" name="rune">
@@ -29,6 +30,7 @@
               <xs:attribute name="announcer" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="mimiccharge" type="xs:unsignedInt" use="required" />
               <xs:attribute name="announcerdelay" type="xs:unsignedInt" use="optional" />
+              <xs:attribute name="hud" type="xs:string" use="optional" />
             </xs:complexType>
           </xs:element>
           <xs:element name="pilleffect">
