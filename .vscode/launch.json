@@ -11,7 +11,7 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true,
-      "args": ["-p", "D:\\Workspace\\Isaac-xmlvalidator-action\\**"]
+      "args": ["-p", "..\\Isaac-xmlvalidator-action\\"]
     }
   ]
 }
