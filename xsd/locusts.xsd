@@ -6,9 +6,9 @@
         <xs:element maxOccurs="unbounded" name="color">
           <xs:complexType>
             <xs:attribute name="name" type="xs:string" use="required" />
-            <xs:attribute name="r" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="g" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="b" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="r" type="xs:integer" use="optional" />
+            <xs:attribute name="g" type="xs:integer" use="optional" />
+            <xs:attribute name="b" type="xs:integer" use="optional" />
             <xs:attribute name="or" type="xs:short" use="optional" />
             <xs:attribute name="og" type="xs:short" use="optional" />
             <xs:attribute name="ob" type="xs:short" use="optional" />
