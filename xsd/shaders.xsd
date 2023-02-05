@@ -3,7 +3,7 @@
   <xs:element name="shaders">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="shader">
+        <xs:element maxOccurs="unbounded" name="shader">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="parameters">
