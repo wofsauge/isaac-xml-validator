@@ -59,9 +59,14 @@ By default, it will recursively scan for all XML files in the current working di
 
 You will likely want to set up your repository so that the script runs in CI (e.g. GitHub Actions).
 
+
 ## Usage in GitHub Actions
 
 For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a GitHub action](https://github.com/wofsauge/Isaac-xmlvalidator-action) that automatically invokes the script.
+
+## Usage with Docker
+
+For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a Docker Image](https://hub.docker.com/r/opensauce04/isaac-xml-validator) that automatically invokes the script.
 
 ## Creating New XSD Files
 
