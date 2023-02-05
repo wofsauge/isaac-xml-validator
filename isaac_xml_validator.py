@@ -295,6 +295,8 @@ def read_github_env_vars():
 
     if "INPUT_ROOTFOLDER" in os.environ:
         root_folder = os.environ["INPUT_ROOTFOLDER"]
+    if "GITHUB_WORKSPACE" in os.environ:
+        root_folder = os.environ["GITHUB_WORKSPACE"] + "/" + root_folder
     printf("\tRoot folder: ", root_folder)
 
     if "INPUT_RECURSIVE" in os.environ:
