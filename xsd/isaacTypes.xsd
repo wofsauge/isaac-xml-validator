@@ -4,7 +4,7 @@
             <xs:documentation>Filename or path required that needs to end with ".png"</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="(.)*.png" />
+            <xs:pattern value="(((.)*.png)|)" />
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="anm2File">
