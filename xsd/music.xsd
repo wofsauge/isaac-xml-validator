@@ -13,7 +13,7 @@
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
-                        <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                        <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
                         <xs:attribute name="name" type="xs:string" use="required" />
                         <xs:attribute name="intro" type="xsisaac:soundFile" use="optional" />
                         <xs:attribute name="path" type="xsisaac:soundFile" use="required" />

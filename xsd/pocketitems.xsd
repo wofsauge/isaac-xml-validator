@@ -6,7 +6,7 @@
         <xs:choice maxOccurs="unbounded">
           <xs:element maxOccurs="unbounded" name="card">
             <xs:complexType>
-              <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="type" type="xs:string" use="optional" />
               <xs:attribute name="pickup" type="xs:unsignedInt" use="optional" />
@@ -25,7 +25,7 @@
               <xs:attribute name="pickup" type="xs:unsignedInt" use="required" />
               <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="description" type="xs:string" use="required" />
-              <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+              <xs:attribute name="id" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="announcer" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="mimiccharge" type="xs:unsignedInt" use="required" />
