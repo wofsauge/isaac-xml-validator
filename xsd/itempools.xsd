@@ -6,7 +6,7 @@
         <xs:element maxOccurs="unbounded" name="Pool">
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="Item">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Item">
                 <xs:complexType>
                   <xs:attribute name="Id" type="xs:unsignedShort" use="optional" />
                   <xs:attribute name="Name" type="xs:string" use="optional" />
