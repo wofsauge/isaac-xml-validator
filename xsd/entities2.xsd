@@ -19,12 +19,12 @@
                 </xs:element>
                 <xs:element name="gibs">
                   <xs:complexType>
-                    <xs:attribute name="amount" type="xs:unsignedInt" use="required" />
-                    <xs:attribute name="blood" type="xs:unsignedInt" use="required" />
-                    <xs:attribute name="bone" type="xs:unsignedInt" use="required" />
-                    <xs:attribute name="eye" type="xs:unsignedInt" use="required" />
-                    <xs:attribute name="gut" type="xs:unsignedInt" use="required" />
-                    <xs:attribute name="large" type="xs:unsignedInt" use="required" />
+                    <xs:attribute name="amount" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="blood" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="bone" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="eye" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="gut" type="xs:unsignedInt" use="optional" />
+                    <xs:attribute name="large" type="xs:unsignedInt" use="optional" />
                     <xs:attribute name="worm" type="xs:unsignedInt" use="optional" />
                     <xs:attribute name="sound_baby" type="xs:unsignedInt" use="optional" />
                     <xs:attribute name="dust" type="xs:unsignedInt" use="optional" />
