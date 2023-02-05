@@ -7,8 +7,8 @@
           <xs:element maxOccurs="unbounded" name="passive">
             <xs:complexType>
               <xs:attribute name="cache" type="xs:string" use="optional" />
-              <xs:attribute name="description" type="xs:string" use="required" />
-              <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
+              <xs:attribute name="description" type="xs:string" use="optional" />
+              <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
               <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
@@ -35,8 +35,8 @@
           <xs:element name="familiar">
             <xs:complexType>
               <xs:attribute name="cache" type="xs:string" use="optional" />
-              <xs:attribute name="description" type="xs:string" use="required" />
-              <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
+              <xs:attribute name="description" type="xs:string" use="optional" />
+              <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
               <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
@@ -63,8 +63,8 @@
           <xs:element name="active">
             <xs:complexType>
               <xs:attribute name="cache" type="xs:string" use="optional" />
-              <xs:attribute name="description" type="xs:string" use="required" />
-              <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
+              <xs:attribute name="description" type="xs:string" use="optional" />
+              <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
               <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
@@ -95,8 +95,8 @@
           <xs:element name="trinket">
             <xs:complexType>
               <xs:attribute name="cache" type="xs:string" use="optional" />
-              <xs:attribute name="description" type="xs:string" use="required" />
-              <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
+              <xs:attribute name="description" type="xs:string" use="optional" />
+              <xs:attribute name="gfx" type="xsisaac:pngFile" use="optional" />
               <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
               <xs:attribute name="name" type="xs:string" use="required" />
               <xs:attribute name="hearts" type="xs:unsignedInt" use="optional" />
