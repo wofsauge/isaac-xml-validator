@@ -25,8 +25,8 @@
             <xs:attribute name="minfirerate" type="xs:decimal" use="optional" />
             <xs:attribute name="minshotspeed" type="xs:boolean" use="optional" />
             <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="maxhp" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="redhp" type="xs:byte" use="optional" />
+            <xs:attribute name="maxhp" type="xs:integer" use="optional" />
+            <xs:attribute name="redhp" type="xs:integer" use="optional" />
             <xs:attribute name="difficulty" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="megasatan" type="xs:boolean" use="optional" />
             <xs:attribute name="adddamage" type="xs:unsignedInt" use="optional" />
