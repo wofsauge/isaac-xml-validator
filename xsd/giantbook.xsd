@@ -9,10 +9,10 @@
               <xs:element maxOccurs="unbounded" name="layer">
                 <xs:complexType>
                   <xs:attribute name="name" type="xs:string" use="required" />
-                  <xs:attribute name="r" type="xs:unsignedInt" use="required" />
-                  <xs:attribute name="g" type="xs:unsignedInt" use="required" />
-                  <xs:attribute name="b" type="xs:unsignedInt" use="required" />
-                  <xs:attribute name="a" type="xs:unsignedInt" use="required" />
+                  <xs:attribute name="r" type="xs:integer" use="required" />
+                  <xs:attribute name="g" type="xs:integer" use="required" />
+                  <xs:attribute name="b" type="xs:integer" use="required" />
+                  <xs:attribute name="a" type="xs:integer" use="required" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
