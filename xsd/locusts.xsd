@@ -18,7 +18,7 @@
           <xs:complexType>
             <xs:attribute name="id" type="xs:unsignedShort" use="required" />
             <xs:attribute name="count" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="color" type="xs:string" use="required" />
+            <xs:attribute name="color" type="xs:string" use="optional" />
             <xs:attribute name="tearFlags" type="xs:string" use="optional" />
             <xs:attribute name="damageMultiplier" type="xs:decimal" use="optional" />
             <xs:attribute name="scale" type="xs:decimal" use="optional" />
