@@ -58,9 +58,9 @@ global error_count
 
 file_ignore_list = [
     # Ignore node module and rooms xml folders
-    "\\node_modules\\**",
-    "\\resources\\rooms\\**",
-    "\\content\\rooms\\**",
+    "\\node_modules\\",
+    "\\resources\\rooms\\",
+    "\\content\\rooms\\",
     # Both of these files do not have a top-level tag, so they will always fail linting.
     # (The game's internal XML parser does not care about this.)
     "fxlayers.xml",
@@ -172,19 +172,11 @@ def main():
     global root_folder, expected_error_count, recursive, error_count
     total_error_count = 0
 
-    # Generalize root folder path
-    if not root_folder.endswith("**"):
-        if not root_folder.endswith("/") and not root_folder.endswith("\\"):
-            root_folder = root_folder + "\\"
-        root_folder = root_folder + "**"
-
     files = glob.glob(root_folder + "/**.xml", recursive=recursive)
+
     # remove files and folders to ignore
     for ignoreFile in file_ignore_list:
-        if not ignoreFile.startswith("/") and not ignoreFile.startswith("\\"):
-            ignoreFile = "/" + ignoreFile
-        ignoredFiles = glob.glob(root_folder + ignoreFile, recursive=True)
-        files = [f for f in files if f not in ignoredFiles]
+        files = [f for f in files if ignoreFile not in f]
 
     # if exists, remove all folders and files mentioned in the .gitignore file
     gitignore_files = get_gitignore_files()
