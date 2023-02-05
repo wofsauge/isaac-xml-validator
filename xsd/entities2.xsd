@@ -63,8 +63,8 @@
             <xs:attribute name="boss" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="champion" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="collisionDamage" type="xs:decimal" use="optional" />
-            <xs:attribute name="collisionMass" type="xs:unsignedShort" use="optional" />
-            <xs:attribute name="collisionRadius" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="collisionMass" type="xs:decimal" use="optional" />
+            <xs:attribute name="collisionRadius" type="xs:decimal" use="optional" />
             <xs:attribute name="friction" type="xs:decimal" use="optional" />
             <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
             <xs:attribute name="name" type="xs:string" use="required" />
