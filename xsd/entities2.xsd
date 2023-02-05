@@ -59,17 +59,17 @@
               </xs:choice>
             </xs:sequence>
             <xs:attribute name="anm2path" type="xs:string" use="required" />
-            <xs:attribute name="baseHP" type="xs:decimal" use="required" />
-            <xs:attribute name="boss" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="baseHP" type="xs:decimal" use="optional" />
+            <xs:attribute name="boss" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="champion" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="collisionDamage" type="xs:decimal" use="required" />
-            <xs:attribute name="collisionMass" type="xs:unsignedShort" use="required" />
-            <xs:attribute name="collisionRadius" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="friction" type="xs:decimal" use="required" />
+            <xs:attribute name="collisionDamage" type="xs:decimal" use="optional" />
+            <xs:attribute name="collisionMass" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="collisionRadius" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="friction" type="xs:decimal" use="optional" />
             <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
             <xs:attribute name="name" type="xs:string" use="required" />
-            <xs:attribute name="numGridCollisionPoints" type="xs:unsignedInt" use="required" />
-            <xs:attribute name="shadowSize" type="xs:decimal" use="required" />
+            <xs:attribute name="numGridCollisionPoints" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="shadowSize" type="xs:decimal" use="optional" />
             <xs:attribute name="stageHP" type="xs:decimal" use="optional" />
             <xs:attribute name="variant" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="tags" type="xs:string" use="optional" />
@@ -88,6 +88,7 @@
             <xs:attribute name="gibFlags" type="xs:string" use="optional" />
             <xs:attribute name="bestiaryAnim" type="xs:string" use="optional" />
             <xs:attribute name="bestiaryOverlay" type="xs:string" use="optional" />
+            <xs:attribute name="bestiary" type="xs:boolean" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
