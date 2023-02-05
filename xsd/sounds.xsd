@@ -8,7 +8,7 @@
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="sample">
                 <xs:complexType>
-                  <xs:attribute name="weight" type="xs:unsignedInt" use="required" />
+                  <xs:attribute name="weight" type="xs:float" use="required" />
                   <xs:attribute name="path" type="xsisaac:soundFile" use="required" />
                 </xs:complexType>
               </xs:element>
