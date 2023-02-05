@@ -10,7 +10,7 @@
                 <xs:element name="bestiary">
                   <xs:complexType>
                     <xs:attribute name="anim" type="xs:string" use="optional" />
-                    <xs:attribute name="transform" type="xs:string" use="optional" />
+                    <xs:attribute name="transform" type="xsisaac:bestiaryTransform" use="optional" />
                     <xs:attribute name="overlay" type="xs:string" use="optional" />
                     <xs:attribute name="anm2path" type="xs:string" use="optional" />
                     <xs:attribute name="parent" type="xs:decimal" use="optional" />
@@ -89,7 +89,7 @@
             <xs:attribute name="bestiaryAnim" type="xs:string" use="optional" />
             <xs:attribute name="bestiaryOverlay" type="xs:string" use="optional" />
             <xs:attribute name="bestiary" type="xs:boolean" use="optional" />
-            <xs:attribute name="bestiaryTransform" type="xs:string" use="optional" />
+            <xs:attribute name="bestiaryTransform" type="xsisaac:bestiaryTransform" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

@@ -71,6 +71,14 @@
             <xs:pattern value="(([.oOQ$v^V_/|%hrsbBge1234({\[>?~]){8})" />
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="bestiaryTransform">
+        <xs:annotation>
+            <xs:documentation>Bestiary transform definition needs to be in format: "([-.]*\d+,[-.]*\d+,[-.]*\d+)"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\d*[-.]*\d+,\d*[-.]*\d+,\d*[-.]*\d+)" />
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="deprecated">
         <xs:annotation>
             <xs:documentation>Attribute is no longer used with Repentance</xs:documentation>
