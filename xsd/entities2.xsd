@@ -88,6 +88,7 @@
             <xs:attribute name="gibFlags" type="xs:string" use="optional" />
             <xs:attribute name="bestiaryAnim" type="xs:string" use="optional" />
             <xs:attribute name="bestiaryOverlay" type="xs:string" use="optional" />
+            <xs:attribute name="bestiary" type="xs:boolean" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
