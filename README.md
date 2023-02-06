@@ -66,7 +66,7 @@ For most users, you will probably want to manually integrate the Python script i
 
 ## Usage with Docker
 
-For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a Docker Image](https://hub.docker.com/r/opensauce04/isaac-xml-validator) that automatically invokes the script.
+For most users, you will probably want to manually integrate the Python script into your existing lint routine. Alternatively, you can use [a Docker Image](https://hub.docker.com/r/opensauce04/isaac-xml-validator) that contains the script and its dependencies.
 
 ## Creating New XSD Files
 
