@@ -33,6 +33,12 @@ parser.add_argument(
     help="Hide all non error related log messages",
     action="store_true",
 )
+parser.add_argument(
+    "-w",
+    "--ignorewarnings",
+    help="Treat warnings as error",
+    action="store_true",
+)
 args = parser.parse_args()
 
 
@@ -92,6 +98,10 @@ silent_mode = False
 if args.silent:
     silent_mode = True
 
+global ignore_warnings
+ignore_warnings = True
+if args.ignorewarnings:
+    ignore_warnings = False
 
 # ~~~~~~~~~~~~ Special conditions ~~~~~~~~~~~~
 
@@ -169,7 +179,7 @@ def main():
 
     read_github_env_vars()
 
-    global root_folder, expected_error_count, recursive, error_count
+    global root_folder, expected_error_count, recursive, error_count, ignore_warnings
     total_error_count = 0
 
     files = glob.glob(root_folder + "/**.xml", recursive=recursive)
@@ -209,18 +219,34 @@ def main():
 
         # Parse the XML file using our XSD file.
         xml_errors = parse_isaac_xml_file(file_path, xsd_path)
+        numErrors = len(xml_errors)
         if xml_errors is not None:
             for error in xml_errors:
-                print_err(
-                    error.filename
-                    + ":line "
-                    + str(error.line)
-                    + ":col "
-                    + str(error.column)
-                    + ": "
-                    + error.message
-                )
-        error_count += len(xml_errors)
+                # treat non existant attributes as warning
+                if "attribute" in error.message and "is not allowed" in error.message:
+                    print_warn(
+                        error.filename
+                        + ":line "
+                        + str(error.line)
+                        + ":col "
+                        + str(error.column)
+                        + ": "
+                        + error.message.replace("is not allowed", "was not recognized")
+                        + " (spelling mistake?)"
+                    )
+                    if not ignore_warnings:
+                        numErrors -= 1
+                else:
+                    print_err(
+                        error.filename
+                        + ":line "
+                        + str(error.line)
+                        + ":col "
+                        + str(error.column)
+                        + ": "
+                        + error.message
+                    )
+        error_count += numErrors
 
         error_count += evaluate_special_conditions(file_path)
 
@@ -282,7 +308,7 @@ def parse_isaac_xml_file(xml_file_path: str, xsd_file_path: str):
 
 
 def read_github_env_vars():
-    global root_folder, expected_error_count, recursive
+    global root_folder, expected_error_count, recursive, ignore_warnings
     printf("Evaluate settings:")
 
     if "INPUT_ROOTFOLDER" in os.environ:
@@ -303,6 +329,10 @@ def read_github_env_vars():
         if not os.environ["INPUT_IGNORE"] == "":
             file_ignore_list.extend(os.environ["INPUT_IGNORE"].split(","))
     printf("\tIgnored files: ", file_ignore_list)
+
+    if "INPUT_IGNOREWARNINGS" in os.environ:
+        ignore_warnings = bool(os.environ["INPUT_IGNOREWARNINGS"])
+    printf("\tTreat warning as error: ", ignore_warnings)
 
 
 if __name__ == "__main__":

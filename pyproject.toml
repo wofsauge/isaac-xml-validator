@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "isaac-xml-validator"
-version = "1.12.3"
+version = "1.12.5"
 description = "A script to validate XML files for the game 'The Binding of Isaac: Repentance'"
 authors = [
     {name = "Wofsauge", email = "jan-.-@t-online.de"},

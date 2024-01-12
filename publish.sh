@@ -26,6 +26,9 @@ if [[ -z $PYPI_PASSWORD ]]; then
 fi
 
 # Build Pypi package
+py -m pip install --upgrade pip
+py -m pip install build twine
+
 py -m build
 
 pause "Build finished. Press any key to continue uploading..."
