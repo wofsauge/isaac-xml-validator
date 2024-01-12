@@ -23,7 +23,7 @@
             <xs:attribute name="birthright" type="xs:string" use="optional" />
             <xs:attribute name="costume" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="items" type="xs:string" use="optional" />
-            <xs:attribute name="achievement" type="xs:string" use="optional" />
+            <xs:attribute name="achievement" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
             <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="armor" type="xs:unsignedInt" use="optional" />
