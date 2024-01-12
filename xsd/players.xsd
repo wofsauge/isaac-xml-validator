@@ -23,7 +23,7 @@
             <xs:attribute name="birthright" type="xs:string" use="optional" />
             <xs:attribute name="costume" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="items" type="xs:string" use="optional" />
-            <xs:attribute name="achievement" type="xs:short" use="optional" />
+            <xs:attribute name="achievement" type="xs:string" use="optional" />
             <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="armor" type="xs:unsignedInt" use="optional" />
@@ -39,6 +39,28 @@
             <xs:attribute name="hidden" type="xs:boolean" use="optional" />
             <xs:attribute name="extraportrait" type="xsisaac:anm2File" use="optional" />
             <xs:attribute name="bigportrait" type="xsisaac:deprecated" use="optional" />
+            <!-- Repentogon -->
+            <xs:attribute name="heartcontainers" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="redhearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="soulhearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="blackhearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="goldenhearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="bonehearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="eternalheart" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="brokenhearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="rottenhearts" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="healthtype" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="healthlimit" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="speedmodifier" type="xs:float" use="optional" />
+            <xs:attribute name="firedelaymodifier" type="xs:float" use="optional" />
+            <xs:attribute name="damagemodifier" type="xs:float" use="optional" />
+            <xs:attribute name="rangemodifier" type="xs:float" use="optional" />
+            <xs:attribute name="shotspeedmodifier" type="xs:float" use="optional" />
+            <xs:attribute name="luckmodifier" type="xs:float" use="optional" />
+            <xs:attribute name="gigabombs" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="completionparent" type="xs:string" use="optional" />
+            <xs:attribute name="nomarks" type="xs:boolean" use="optional" />
+            <xs:attribute name="modcostume" type="xs:unsignedInt" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

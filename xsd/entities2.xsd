@@ -90,6 +90,11 @@
             <xs:attribute name="bestiaryOverlay" type="xs:string" use="optional" />
             <xs:attribute name="bestiary" type="xs:boolean" use="optional" />
             <xs:attribute name="bestiaryTransform" type="xsisaac:bestiaryTransform" use="optional" />
+            <!-- Repentogon -->
+            <xs:attribute name="customtags" type="xs:string" use="optional" />
+            <xs:attribute name="familiarignorebffs" type="xs:boolean" use="optional" />
+            <xs:attribute name="familiarcantakedamage" type="xs:boolean" use="optional" />
+            <xs:attribute name="familiarblockprojectiles" type="xs:boolean" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

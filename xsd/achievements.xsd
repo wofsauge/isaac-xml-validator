@@ -11,6 +11,9 @@
                         <xs:attribute name="steam_name" type="xs:string" use="optional" />
                         <xs:attribute name="steam_description" type="xs:string" use="optional" />
                         <xs:attribute name="steam_icon" type="xs:string" use="optional" />
+                        <!-- Repentogon -->
+                        <xs:attribute name="name" type="xs:string" use="optional" />
+                        <xs:attribute name="gfxback" type="xs:string" use="optional" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
