@@ -19,6 +19,8 @@
                 <xs:attribute name="hasOverlay" type="xs:boolean" use="optional" />
                 <xs:attribute name="forceBodyColor" type="xs:boolean" use="optional" />
                 <xs:attribute name="forceHeadColor" type="xs:boolean" use="optional" />
+                <!-- Repentogon -->
+                <xs:attribute name="name" type="xs:string" use="optional" />
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>

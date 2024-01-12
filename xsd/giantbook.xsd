@@ -20,6 +20,8 @@
             <xs:attribute name="anm2" type="xs:string" use="optional" />
             <xs:attribute name="anim" type="xs:string" use="optional" />
             <xs:attribute name="gfx" type="xs:string" use="optional" />
+            <!-- Repentogon -->
+            <xs:attribute name="name" type="xs:string" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
