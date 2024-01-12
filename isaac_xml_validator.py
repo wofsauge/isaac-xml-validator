@@ -233,7 +233,10 @@ def main():
     if total_error_count > 0:
         print_err(f"Found: {total_error_count} errors")
         if total_error_count != expected_error_count:
-            print_err("Expected error count was not reached!")
+            if total_error_count > expected_error_count:
+                print_err("Expected error count was exceeded!")
+            else:
+                print_err("Expected error count was not reached!")
             sys.exit(1)
     else:
         print_ok("No errors found.")
