@@ -36,7 +36,7 @@ parser.add_argument(
 parser.add_argument(
     "-w",
     "--ignorewarnings",
-    help="Treat warnings as error",
+    help="If set, warnings will not count towards the total number of errors.",
     action="store_true",
 )
 args = parser.parse_args()
