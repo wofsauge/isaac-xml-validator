@@ -33,6 +33,8 @@
             <xs:attribute name="bigrange" type="xs:boolean" use="optional" />
             <xs:attribute name="secretpath" type="xs:boolean" use="optional" />
             <xs:attribute name="startingitems2" type="xs:string" use="optional" />
+            <!-- Repentogon -->
+            <xs:attribute name="hidden" type="xs:boolean" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
