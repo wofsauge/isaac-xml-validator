@@ -1,6 +1,6 @@
 /* ==========================================================================
    Copyright 2012 syssgx (http://github.com/syssgx)
- 
+
    Code licensed under CC BY 3.0 licence
    http://creativecommons.org/licenses/by/3.0/
    ========================================================================== */
@@ -11,6 +11,11 @@ var fileNameLookup = {
 	"costumes": "costumes2",
 	"entities": "entities2",
 	"preloads": "preload",
+	// rep+
+	"collectibles": "info_display",
+	"trinkets": "info_display",
+	"pills": "info_display",
+	"cards": "info_display",
 };
 
 
@@ -26,7 +31,7 @@ $(document).ready(function() {
 		}
 		window.prettyPrint && prettyPrint();
 	})();
-	
+
 	var schemaData = 0, schemaFileName;
 
 	// Workaround for HTTPS imports not working with this xsd validator library
@@ -37,7 +42,7 @@ $(document).ready(function() {
 	$.ajax({
 		url: "https://wofsauge.github.io/isaac-xml-validator/xsd/isaacTypes.xsd",
 		dataType: "xml",
-		success: function(data){ 
+		success: function(data){
 			refXML = data;
 			//create annotation map to improve user feedback
 			for (let pattern of refXML.getElementsByTagName("xs:pattern")) {
@@ -70,7 +75,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			url: "https://wofsauge.github.io/isaac-xml-validator/xsd/"+fileName,
-			success: function(data){ 
+			success: function(data){
 				// Workaround for HTTPS imports not working with this xsd validator library
 				// manually import the file content
 				if(data.firstChild.hasAttribute("xmlns:xsisaac")){
@@ -92,27 +97,27 @@ $(document).ready(function() {
 				 schemaData = schemaData.replaceAll("xsisaac:",""); // replace schema identifier, which no longer is needed due to manual import
 				 schemaFileName = fileName;
 				$(".valoutput").removeClass("valColor1").removeClass("valColor2");
-				$(".valtext").text("File successfully detected: "+fileName.replace(".xsd",".xml")); 
+				$(".valtext").text("File successfully detected: "+fileName.replace(".xsd",".xml"));
 			},
 			error: function(){
 				$(".valoutput").removeClass("valColor1").addClass("valColor2");
-				$(".valtext").text("No XSD Schema file found for file: "+fileName); 
+				$(".valtext").text("No XSD Schema file found for file: "+fileName);
 			}
 		});
 	}
-	
+
 	$(".close").alert();
-	
+
 	$("#textBtn").click(function() {
 		if (editor1.getValue().length < 10) {
 			$(".valoutput").removeClass("valColor1").removeClass("valColor2");
-			$(".valtext").text("Enter XML Data"); 
+			$(".valtext").text("Enter XML Data");
 			return;
 		}
-		
-		$(".console").val("");		
+
+		$(".console").val("");
 		$(".valtext").text("Validating...");
-		
+
 		var Module = {
 			xml: editor1.getValue(),
 			schema: schemaData,
@@ -122,11 +127,11 @@ $(document).ready(function() {
 		var result = validateXML(Module);
 		xmlInfo(result, ".valoutput", ".valtext", ".console");
 	});
-	
+
 	$("#clearBtn").click(function() {
 		editor1.setValue(" ");
 	});
-	
+
 	function xmlInfo(result, output1, output2, consoleprint) {
 		var cval = $(consoleprint).val();
 		var arrayOfLines = result.split('\n');
@@ -147,7 +152,7 @@ $(document).ready(function() {
 		for (const key in refAnnotations) {
 			result = result.replaceAll(key,key+" ("+refAnnotations[key]+")");
 		}
-		
+
 		if (result.search("xml validates") > 0) {
 			$(output1).removeClass("valColor2").addClass("valColor1");
 			$(output2).text("Document validated successfully!");
@@ -160,7 +165,7 @@ $(document).ready(function() {
 			$(".console").show();
 		}
 	}
-	
+
 	var editor1 = CodeMirror.fromTextArea($("#xml_data")[0], {
 	  mode: "application/xml",
 	  lineNumbers: true,
@@ -216,14 +221,14 @@ $(document).ready(function() {
 	  mod(CodeMirror);
   })(function(CodeMirror) {
 	"use strict";
-  
+
 	CodeMirror.defineOption("fullScreen", false, function(cm, val, old) {
 	  if (old == CodeMirror.Init) old = false;
 	  if (!old == !val) return;
 	  if (val) setFullscreen(cm);
 	  else setNormal(cm);
 	});
-  
+
 	function setFullscreen(cm) {
 	  var wrap = cm.getWrapperElement();
 	  cm.state.fullScreenRestore = {scrollTop: window.pageYOffset, scrollLeft: window.pageXOffset,
@@ -234,7 +239,7 @@ $(document).ready(function() {
 	  document.documentElement.style.overflow = "hidden";
 	  cm.refresh();
 	}
-  
+
 	function setNormal(cm) {
 	  var wrap = cm.getWrapperElement();
 	  wrap.className = wrap.className.replace(/\s*CodeMirror-fullscreen\b/, "");
