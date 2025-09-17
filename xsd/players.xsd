@@ -60,6 +60,7 @@
             <xs:attribute name="gigabombs" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="completionparent" type="xs:string" use="optional" />
             <xs:attribute name="nomarks" type="xs:boolean" use="optional" />
+            <xs:attribute name="noshake" type="xs:boolean" use="optional" />
             <xs:attribute name="modcostume" type="xs:unsignedInt" use="optional" />
           </xs:complexType>
         </xs:element>

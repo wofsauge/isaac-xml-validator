@@ -24,6 +24,9 @@
             <xs:attribute name="waterpitsmode" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="waterpit" type="xsisaac:pngFile" use="optional" />
             <xs:attribute name="spikes" type="xsisaac:pngFile" use="optional" />
+            <!-- Repentogon -->
+            <xs:attribute name="reftype" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="name" type="xs:string" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

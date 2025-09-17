@@ -12,8 +12,8 @@
             <xs:attribute name="cursefilter" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="getcurse" type="xs:unsignedInt" use="optional" />
             <xs:attribute name="startingitems" type="xs:string" use="optional" />
-            <xs:attribute name="startingtrinkets" type="xs:unsignedInt" use="optional" />
-            <xs:attribute name="playertype" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="startingtrinkets" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
+            <xs:attribute name="playertype" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
             <xs:attribute name="achievements" type="xs:string" use="optional" />
             <xs:attribute name="altpath" type="xs:boolean" use="optional" />
             <xs:attribute name="canshoot" type="xs:boolean" use="optional" />
@@ -35,6 +35,8 @@
             <xs:attribute name="startingitems2" type="xs:string" use="optional" />
             <!-- Repentogon -->
             <xs:attribute name="hidden" type="xs:boolean" use="optional" />
+            <xs:attribute name="unlockachievement" type="xs:string" use="optional" />
+            <xs:attribute name="lockeddesc" type="xs:string" use="optional" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

@@ -5,7 +5,7 @@
             <xs:sequence>
                 <xs:element maxOccurs="unbounded" name="achievement">
                     <xs:complexType>
-                        <xs:attribute name="id" type="xs:unsignedShort" use="optional" />
+                        <xs:attribute name="id" type="xs:unsignedShort" use="optional" /> <!-- In Vanilla its required. Repentogon its optional -->
                         <xs:attribute name="text" type="xs:string" use="required" />
                         <xs:attribute name="gfx" type="xsisaac:pngFile" use="required" />
                         <xs:attribute name="steam_name" type="xs:string" use="optional" />
@@ -14,6 +14,7 @@
                         <!-- Repentogon -->
                         <xs:attribute name="name" type="xs:string" use="optional" />
                         <xs:attribute name="gfxback" type="xs:string" use="optional" />
+                        <xs:attribute name="hidden" type="xs:boolean" use="optional" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>

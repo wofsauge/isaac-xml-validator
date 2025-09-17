@@ -16,7 +16,7 @@
               <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="achievement" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
               <xs:attribute name="special" type="xs:boolean" use="optional" />
               <xs:attribute name="maxcharges" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />
@@ -44,7 +44,7 @@
               <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="achievement" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
               <xs:attribute name="special" type="xs:boolean" use="optional" />
               <xs:attribute name="maxcharges" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />
@@ -72,7 +72,7 @@
               <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="achievement" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
               <xs:attribute name="special" type="xs:boolean" use="optional" />
               <xs:attribute name="maxcharges" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />
@@ -104,7 +104,7 @@
               <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="achievement" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
               <xs:attribute name="special" type="xs:boolean" use="optional" />
               <xs:attribute name="maxcharges" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />
@@ -132,7 +132,7 @@
               <xs:attribute name="keys" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="coins" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="bombs" type="xs:unsignedInt" use="optional" />
-              <xs:attribute name="achievement" type="xs:unsignedShort" use="optional" />
+              <xs:attribute name="achievement" type="xs:string" use="optional" /> <!-- Vanilla only uses ints, Repentogon can use strings -->
               <xs:attribute name="special" type="xs:boolean" use="optional" />
               <xs:attribute name="maxcharges" type="xs:unsignedInt" use="optional" />
               <xs:attribute name="hidden" type="xs:boolean" use="optional" />

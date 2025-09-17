@@ -12,6 +12,8 @@
                   <xs:attribute name="scale" type="xs:decimal" use="optional" />
                   <xs:attribute name="hp" type="xs:decimal" use="optional" />
                   <xs:attribute name="anm2path" type="xsisaac:anm2File" use="optional" />
+                  <!-- Repentogon -->
+                  <xs:attribute name="name" type="xs:string" use="optional" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
